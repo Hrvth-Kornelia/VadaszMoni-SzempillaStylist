@@ -1,0 +1,788 @@
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --header-background:#2e2e2e;
+    --header-background-end:#151515;
+
+    --page-background:#f8f4ef;
+    --page-background-soft:#fffdf9;
+
+    --body-text:#332d29;
+
+    --paper:#f8f4ef;
+    --paper-strong:#fffdf9;
+
+    --ink:#332d29;
+
+    --taupe:#a98d78;
+    --champagne:#c8aa8e;
+
+    --white:#fffdf9;
+
+    --header-height:104px;
+    --header-text:#f7f4f2;
+    --header-border:#f1e9c4;
+}
+
+
+body{
+    margin:0;
+    min-width:300px;
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--page-background) 0%,
+            var(--page-background-soft) 100%
+        );
+
+    color:var(--body-text);
+
+    font-family:"Montserrat",Arial,sans-serif;
+    font-weight:300;
+}
+
+
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* =========================
+   FEJLÉC
+========================= */
+
+.luxoria-header{
+    position:relative;
+    top:0;
+    z-index:50;
+
+    width:100%;
+    min-height:var(--header-height);
+
+    padding:
+        env(safe-area-inset-top)
+        17px
+        12px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--header-background) 0%,
+            var(--header-background-end) 100%
+        );
+
+    border-bottom:
+        1px solid rgba(230,195,168,.2);
+
+    box-shadow:
+        0 12px 32px rgba(46,27,20,.12);
+}
+
+
+/* =========================
+   FŐOLDAL GOMB
+========================= */
+
+.home-button{
+    min-height:52px;
+
+    margin-left:15px;
+
+    padding:0 22px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:12px;
+
+    border:
+        1px solid var(--header-border);
+
+    border-radius:999px;
+
+    color:var(--header-text);
+
+    background:
+        rgba(255,255,255,.015);
+
+    font-family:
+        "Bodoni Moda",
+        Georgia,
+        serif;
+
+    font-size:17px;
+
+    font-weight:400;
+
+    letter-spacing:.12em;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        background-color .25s ease,
+        transform .25s ease;
+}
+
+
+.home-button i{
+    font-size:27px;
+    line-height:1;
+}
+
+
+.home-button:hover{
+    color:#fff5ed;
+
+    border-color:#dfaa84;
+
+    background:
+        rgba(255,255,255,.055);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.home-button:active{
+    transform:
+        translateY(0);
+}
+
+
+/* =========================
+   PROFIL / ADMIN GOMB
+========================= */
+
+.bejelentkezes{
+    width:55px;
+    height:55px;
+
+    border:
+        1.5px solid #f1e9c4;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    background:transparent;
+
+    margin-left:auto;
+
+    transition:
+        background-color .25s ease,
+        transform .25s ease;
+}
+
+
+.bejelentkezes .bi-person{
+    font-size:28px;
+
+    color:#f1e9c4;
+
+    transition:
+        color .25s ease;
+}
+
+
+.bejelentkezes:hover{
+    background-color:#d8c48f;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.bejelentkezes:hover .bi-person{
+    color:#1d1d1d;
+}
+
+
+/* =========================
+   FŐ OLDAL
+========================= */
+
+.szabad-idopontok-oldal{
+    width:90%;
+
+    max-width:760px;
+
+    margin:
+        82px auto 50px;
+
+    text-align:center;
+}
+
+
+/* =========================
+   FŐCÍM
+========================= */
+
+.szabad-idopontok-oldal h1{
+    margin:0;
+
+    font-family:
+        "Bodoni Moda",
+        Georgia,
+        serif;
+
+    font-size:46px;
+
+    line-height:1.08;
+
+    font-weight:400;
+
+    text-transform:uppercase;
+
+    letter-spacing:.02em;
+
+    color:#1e1d1b;
+}
+
+
+/* =========================
+   ARANY VONAL
+========================= */
+
+.arany-vonal{
+    width:65px;
+
+    height:1px;
+
+    margin:
+        28px auto 34px;
+
+    background:#a4957f;
+}
+
+
+/* =========================
+   ALCÍM
+========================= */
+
+.alcim{
+    margin:
+        0 0 48px;
+
+    color:#918d88;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:18px;
+
+    font-weight:300;
+
+    letter-spacing:.22em;
+}
+
+
+/* =========================
+   IDŐPONT LISTA
+========================= */
+
+#vendegIdopontLista{
+    width:100%;
+}
+
+
+/* =========================
+   HA VAN IDŐPONT
+========================= */
+
+.vendeg-idopont-sor{
+    width:100%;
+
+    margin-bottom:14px;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:25px;
+
+    background:#fffdf9;
+
+    border:
+        1px solid #ddd2ca;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 4px 14px
+        rgba(45,28,23,.05);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:17px;
+}
+
+
+.vendeg-idopont-sor strong{
+    font-weight:500;
+}
+
+
+.vendeg-idopont-sor span{
+    color:#765f55;
+}
+
+
+/* =========================
+   HA NINCS IDŐPONT
+========================= */
+
+.nincs-idopont-allapot{
+    padding:
+        22px 20px 0;
+
+    text-align:center;
+}
+
+
+/* IKON */
+
+.naptar-ikon{
+    position:relative;
+
+    width:130px;
+    height:120px;
+
+    margin:
+        0 auto 35px;
+
+    color:#9e9a95;
+}
+
+
+.naptar-ikon .bi-calendar2-week{
+    position:absolute;
+
+    left:7px;
+    top:0;
+
+    font-size:92px;
+
+    line-height:1;
+}
+
+
+.naptar-ikon .bi-clock{
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:58px;
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#f8f4ef;
+
+    font-size:55px;
+
+    line-height:1;
+}
+
+
+/* NINCS IDŐPONT CÍM */
+
+.nincs-idopont-allapot h2{
+    margin:0;
+
+    font-family:
+        "Bodoni Moda",
+        Georgia,
+        serif;
+
+    font-size:32px;
+
+    line-height:1.18;
+
+    font-weight:400;
+
+    color:#211f1d;
+}
+
+
+/* KIS SZÖVEG */
+
+.nincs-idopont-allapot p{
+    margin:
+        22px 0 0;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:16px;
+
+    font-weight:300;
+
+    letter-spacing:.18em;
+
+    color:#99938e;
+}
+
+
+/* =========================
+   ALSÓ DÍSZ
+========================= */
+
+.lotusz{
+    margin-top:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+    color:#96918b;
+}
+
+
+.lotusz span{
+    width:115px;
+
+    height:1px;
+
+    background:#cfc6bc;
+}
+
+
+.lotusz div{
+    font-size:12px;
+
+    line-height:1;
+}
+
+
+/* =========================
+   MOBIL
+   600PX ALATT
+========================= */
+
+@media (max-width:600px){
+
+    :root{
+        --header-height:90px;
+    }
+
+
+    .luxoria-header{
+        padding:
+            10px 12px;
+    }
+
+
+    .home-button{
+        min-height:46px;
+
+        margin-left:4px;
+
+        padding:
+            0 18px;
+
+        font-size:14px;
+
+        gap:9px;
+    }
+
+
+    .home-button i{
+        font-size:23px;
+    }
+
+
+    .bejelentkezes{
+        width:50px;
+        height:50px;
+    }
+
+
+    .bejelentkezes .bi-person{
+        font-size:24px;
+    }
+
+
+    /* OLDAL */
+
+    .szabad-idopontok-oldal{
+        width:
+            calc(100% - 24px);
+
+        margin:
+            72px auto 30px;
+    }
+
+
+    .szabad-idopontok-oldal h1{
+        font-size:34px;
+
+        line-height:1.08;
+    }
+
+
+    .arany-vonal{
+        width:48px;
+
+        margin:
+            22px auto 28px;
+    }
+
+
+    .alcim{
+        margin-bottom:38px;
+
+        font-size:14px;
+
+        letter-spacing:.18em;
+    }
+
+
+    /* ÜRES ÁLLAPOT */
+
+    .nincs-idopont-allapot{
+        padding:
+            18px 10px 0;
+    }
+
+
+    .naptar-ikon{
+        width:112px;
+        height:105px;
+
+        margin-bottom:28px;
+    }
+
+
+    .naptar-ikon .bi-calendar2-week{
+        font-size:80px;
+    }
+
+
+    .naptar-ikon .bi-clock{
+        width:51px;
+        height:51px;
+
+        font-size:48px;
+    }
+
+
+    .nincs-idopont-allapot h2{
+        font-size:27px;
+
+        line-height:1.18;
+    }
+
+
+    .nincs-idopont-allapot p{
+        margin-top:19px;
+
+        font-size:13px;
+
+        letter-spacing:.16em;
+    }
+
+
+    /* IDŐPONT */
+
+    .vendeg-idopont-sor{
+        gap:15px;
+
+        padding:16px;
+
+        font-size:14px;
+
+        border-radius:8px;
+    }
+
+
+    /* ALSÓ DÍSZ */
+
+    .lotusz{
+        margin-top:45px;
+
+        gap:14px;
+    }
+
+
+    .lotusz span{
+        width:58px;
+    }
+
+
+    .lotusz div{
+        font-size:10px;
+    }
+}
+
+
+/* =========================
+   KICSI TELEFON
+   350PX ALATT
+========================= */
+
+@media (max-width:350px){
+
+    .luxoria-header{
+        padding:
+            9px 9px;
+    }
+
+
+    .home-button{
+        min-height:42px;
+
+        padding:
+            0 13px;
+
+        font-size:12px;
+
+        gap:7px;
+    }
+
+
+    .home-button i{
+        font-size:20px;
+    }
+
+
+    .bejelentkezes{
+        width:43px;
+        height:43px;
+    }
+
+
+    .bejelentkezes .bi-person{
+        font-size:21px;
+    }
+
+
+    /* OLDAL */
+
+    .szabad-idopontok-oldal{
+        width:
+            calc(100% - 16px);
+
+        margin:
+            58px auto 25px;
+    }
+
+
+    .szabad-idopontok-oldal h1{
+        font-size:29px;
+    }
+
+
+    .arany-vonal{
+        width:40px;
+
+        margin:
+            18px auto 23px;
+    }
+
+
+    .alcim{
+        margin-bottom:28px;
+
+        font-size:12px;
+
+        letter-spacing:.14em;
+    }
+
+
+    /* ÜRES ÁLLAPOT */
+
+    .naptar-ikon{
+        width:95px;
+        height:90px;
+
+        margin-bottom:24px;
+    }
+
+
+    .naptar-ikon .bi-calendar2-week{
+        font-size:68px;
+    }
+
+
+    .naptar-ikon .bi-clock{
+        width:44px;
+        height:44px;
+
+        font-size:41px;
+    }
+
+
+    .nincs-idopont-allapot h2{
+        font-size:23px;
+    }
+
+
+    .nincs-idopont-allapot p{
+        font-size:11px;
+
+        letter-spacing:.12em;
+    }
+
+
+    /* IDŐPONT */
+
+    .vendeg-idopont-sor{
+        gap:10px;
+
+        padding:
+            14px 10px;
+
+        font-size:12px;
+    }
+
+
+    /* ALSÓ DÍSZ */
+
+    .lotusz{
+        margin-top:35px;
+
+        gap:10px;
+    }
+
+
+    .lotusz span{
+        width:45px;
+    }
+}

@@ -93,6 +93,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     text-align: left;
     margin-bottom: 28px;
+    overflow: hidden;
 }
 
 .admin-kartya label {

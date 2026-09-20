@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Felszabadult időpontok</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link id="main-css" rel="stylesheet" href="felszabadult-idopontok-adminoldal.css">
+</head>
+<body>
+  <div class="admin-fejlec">
+    <a href="index.html" class="fo-gomb">Főoldal</a>
+  </div>
+
+  <main class="admin-oldal">
+    <h1>Felszabadult időpont<br>rögzítése</h1>
+    <div class="arany-vonal"></div>
+    <p class="admin-alcim">Új felszabadult időpont hozzáadása.</p>
+
+    <div class="admin-kartya">
+      <label for="datum">DÁTUM</label>
+      <input type="date" id="datum">
+
+      <label for="ido">IDŐPONT</label>
+      <input type="time" id="ido">
+
+      <button id="hozzaad" type="button">
+        + Időpont hozzáadása
+      </button>
+    </div>
+
+    <!-- IDEIGLENESEN KIVÁLASZTOTT IDŐPONTOK -->
+    <div class="kivalasztott-resz">
+      <h2>Kiválasztott időpontok</h2>
+      <div id="kivalasztottLista"></div>
+
+      <button id="kuldes" class="vegleges-mentes" type="button">
+        + Mentés
+      </button>
+
+      <p id="pushUsage">Havi push értesítések: – / 25</p>
+    </div>
+
+    <!-- FELVITT IDŐPONTOK -->
+    <div class="admin-lista">
+      <h2>Felvitt időpontok</h2>
+      <div id="adminIdopontLista"></div>
+    </div>
+
+    <div class="lotusz">
+      <span></span>
+      <div>♧</div>
+      <span></span>
+    </div>
+  </main>
+
+  <script type="module">
+    import("./felszabadult-idopontok-adminoldal.js?v=" + Date.now());
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@
   "name": "Vadász Mónika Szempilla-stylist",
   "short_name": "Vadász Mónika",
   "start_url": "/VadaszMoni-SzempillaStylist/", 
-  "scope": "/VadaszMoni-SzempillaStylist /",
+  "scope": "/VadaszMoni-SzempillaStylist/",
   "display": "standalone",
   "background_color": "#f7f2ec",
   "theme_color": "#f7f2ec",

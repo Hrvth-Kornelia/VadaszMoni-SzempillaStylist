@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link id="main-css" rel="stylesheet" href="tavollet-admin.css">
+
+
+<body>
+
+    <header class="admin-fejlec">
+
+        <a
+            href="index.html"
+            class="fo-gomb"
+        >
+            <i class="bi bi-house"></i>
+            Főoldal
+        </a>
+
+    </header>
+
+    <main class="tavollet-oldal">
+
+        <section class="cim-resz">
+
+            <h1>
+                Távollét<br>
+                hozzáadása
+            </h1>
+
+            <div class="arany-vonal"></div>
+
+            <p>
+                Új távollét rögzítése és értesítés küldése.
+            </p>
+
+        </section>
+
+        <section class="tavollet-kartya">
+
+            <div class="mezo-csoport">
+
+                <h2>
+                    Távollét oka
+                </h2>
+
+                <label class="ok-valaszto">
+
+                    <input
+                        type="radio"
+                        name="tavolletOka"
+                        value="szabadsag"
+                        checked
+                    >
+
+                    <span class="radio-jel"></span>
+
+                    <i class="bi bi-calendar2-minus"></i>
+
+                    <span>
+                        Szabadság
+                    </span>
+
+                </label>
+
+                <label class="ok-valaszto">
+
+                    <input
+                        type="radio"
+                        name="tavolletOka"
+                        value="betegseg"
+                    >
+
+                    <span class="radio-jel"></span>
+
+                    <i class="bi bi-heart-pulse"></i>
+
+                    <span>
+                        Betegség
+                    </span>
+
+                </label>
+
+                <label class="ok-valaszto">
+
+                    <input
+                        type="radio"
+                        name="tavolletOka"
+                        value="tovabbkepzes"
+                    >
+
+                    <span class="radio-jel"></span>
+
+                    <i class="bi bi-mortarboard"></i>
+
+                    <span>
+                        Továbbképzés
+                    </span>
+
+                </label>
+
+            </div>
+
+            <div class="mezo-csoport">
+
+                <h2>
+                    Időtartam
+                </h2>
+
+                <div class="datumok">
+
+                    <div class="datum-mezo">
+
+                        <label for="kezdoNap">
+                            Kezdő nap
+                        </label>
+
+                        <input
+                            type="date"
+                            id="kezdoNap"
+                        >
+
+                    </div>
+
+                    <div class="datum-mezo">
+
+                        <label for="utolsoNap">
+                            Utolsó nap
+                        </label>
+
+                        <input
+                            type="date"
+                            id="utolsoNap"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mezo-csoport">
+
+                <div class="uzenet-fejlec">
+
+                    <h2>
+                        Üzenet a vendégeknek
+                    </h2>
+
+                    <span>
+                        opcionális
+                    </span>
+
+                </div>
+
+                <textarea
+                    id="tavolletUzenet"
+                    maxlength="2000"
+                    placeholder="Írj rövid üzenetet a vendégeknek..."
+                ></textarea>
+
+                <div class="karakter-szamlalo">
+                    <span id="karakterSzam">
+                        0
+                    </span>
+                    / 2000
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="kuldes-resz">
+
+            <button
+                id="mentesKuldes"
+                type="button"
+                class="mentes-kuldes-gomb"
+            >
+                <i class="bi bi-bell"></i>
+
+                Mentés és küldés
+            </button>
+
+            <p
+                id="pushUsage"
+                class="push-szamlalo"
+            >
+                Havi push értesítések: 0 / 2
+            </p>
+
+        </section>
+
+        <section class="felvitt-resz">
+
+            <h2>
+                Felvitt távollétek
+            </h2>
+
+            <div
+                id="felvittTavolletek"
+                class="felvitt-lista"
+            >
+
+                <div class="ures-felvitt-lista">
+                    Még nincs felvitt távollét.
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="lotusz">
+
+            <span></span>
+
+            <div>
+                ♧
+            </div>
+
+            <span></span>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

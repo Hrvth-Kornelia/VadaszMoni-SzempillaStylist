@@ -1,0 +1,702 @@
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --fekete:#141414;
+    --fekete-vilagos:#242424;
+    --feher:#ffffff;
+    --krem:#f8f4ef;
+    --krem-vilagos:#fffdf9;
+    --szoveg:#211f1d;
+    --szurke:#8e8984;
+    --vilagos-szurke:#ddd7d1;
+    --arany:#c8aa8e;
+    --arany-sotet:#a98d78;
+}
+
+body{
+    margin:0;
+    min-width:300px;
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4f1ed 0%,
+            #fbfaf8 100%
+        );
+
+    color:var(--szoveg);
+    font-family:"Montserrat",Arial,sans-serif;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+.admin-fejlec{
+    width:100%;
+    min-height:88px;
+
+    padding:14px 20px;
+
+    display:flex;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            100deg,
+            #2d2d2d 0%,
+            #161616 100%
+        );
+
+    border-bottom:
+        1px solid rgba(200,170,142,.25);
+}
+
+.fo-gomb{
+    min-height:44px;
+    padding:0 18px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+
+    border:1px solid #eee4cb;
+    border-radius:999px;
+
+    color:#f7f3e9;
+
+    text-decoration:none;
+    text-transform:uppercase;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:14px;
+    letter-spacing:.10em;
+}
+
+.fo-gomb i{
+    font-size:20px;
+}
+
+.tavollet-oldal{
+    width:90%;
+    max-width:720px;
+
+    margin:58px auto 45px;
+}
+
+.cim-resz{
+    text-align:center;
+    margin-bottom:36px;
+}
+
+.cim-resz h1{
+    margin:0;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:38px;
+    line-height:1.04;
+    font-weight:400;
+
+    text-transform:uppercase;
+
+    color:#1c1b19;
+}
+
+.arany-vonal{
+    width:48px;
+    height:1px;
+
+    margin:22px auto 24px;
+
+    background:var(--arany-sotet);
+}
+
+.cim-resz p{
+    margin:0;
+
+    color:#918b85;
+
+    font-size:13px;
+    font-weight:300;
+    letter-spacing:.10em;
+}
+
+.tavollet-kartya{
+    padding:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1b1b 0%,
+            #101010 100%
+        );
+
+    border-radius:28px;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.10);
+}
+
+.mezo-csoport{
+    margin-bottom:32px;
+}
+
+.mezo-csoport:last-child{
+    margin-bottom:0;
+}
+
+.mezo-csoport h2{
+    margin:0 0 16px;
+
+    color:#f8f4ef;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:22px;
+    font-weight:400;
+}
+
+.ok-valaszto{
+    position:relative;
+
+    width:100%;
+    min-height:62px;
+
+    margin-bottom:10px;
+    padding:0 18px;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    border-radius:14px;
+
+    color:#f9f6f2;
+    background:#252525;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background-color .2s ease;
+}
+
+.ok-valaszto:last-child{
+    margin-bottom:0;
+}
+
+.ok-valaszto input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.radio-jel{
+    position:relative;
+
+    width:22px;
+    height:22px;
+
+    flex:0 0 22px;
+
+    border:2px solid #d6cec5;
+    border-radius:50%;
+}
+
+.ok-valaszto input:checked + .radio-jel{
+    border-color:var(--arany);
+}
+
+.ok-valaszto input:checked + .radio-jel::after{
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+    height:10px;
+
+    left:4px;
+    top:4px;
+
+    border-radius:50%;
+
+    background:var(--arany);
+}
+
+.ok-valaszto:has(input:checked){
+    border-color:
+        rgba(200,170,142,.65);
+
+    background:#303030;
+}
+
+.ok-valaszto i{
+    width:28px;
+
+    font-size:22px;
+
+    color:#d4b38c;
+
+    text-align:center;
+}
+
+.ok-valaszto > span:last-child{
+    font-size:16px;
+    font-weight:500;
+}
+
+/* =========================
+   DÁTUMOK
+========================= */
+
+.datumok{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:14px;
+}
+
+.datum-mezo{
+    width:100%;
+    min-width:0;
+}
+
+.datum-mezo label{
+    display:block;
+
+    margin:0 0 8px;
+
+    color:#ded8d1;
+
+    font-size:13px;
+    font-weight:400;
+}
+
+.datum-mezo input{
+    display:block;
+
+    width:100%;
+    max-width:100%;
+    height:58px;
+
+    padding:0 14px;
+
+    border:1px solid #66615d;
+    border-radius:12px;
+
+    outline:none;
+
+    background:#f8f7f5;
+    color:#252321;
+
+    font-size:15px;
+}
+
+.datum-mezo input:focus{
+    border-color:var(--arany);
+
+    box-shadow:
+        0 0 0 2px rgba(200,170,142,.15);
+}
+
+/* =========================
+   ÜZENET
+========================= */
+
+.uzenet-fejlec{
+    display:flex;
+    align-items:baseline;
+
+    gap:9px;
+
+    margin-bottom:14px;
+}
+
+.uzenet-fejlec h2{
+    margin:0;
+}
+
+.uzenet-fejlec span{
+    color:#aaa39c;
+
+    font-size:12px;
+    font-weight:300;
+}
+
+#tavolletUzenet{
+    width:100%;
+    min-height:170px;
+
+    resize:vertical;
+
+    padding:18px;
+
+    border:1px solid #66615d;
+    border-radius:14px;
+
+    outline:none;
+
+    background:#f8f7f5;
+    color:#24211f;
+
+    font-size:15px;
+    line-height:1.55;
+}
+
+#tavolletUzenet::placeholder{
+    color:#a9a39d;
+}
+
+#tavolletUzenet:focus{
+    border-color:var(--arany);
+
+    box-shadow:
+        0 0 0 2px rgba(200,170,142,.15);
+}
+
+.karakter-szamlalo{
+    margin-top:8px;
+
+    text-align:right;
+
+    color:#aaa39c;
+
+    font-size:12px;
+}
+
+/* =========================
+   MENTÉS
+========================= */
+
+.kuldes-resz{
+    margin-top:32px;
+}
+
+.mentes-kuldes-gomb{
+    width:100%;
+    min-height:66px;
+
+    border:1px solid #222;
+    border-radius:18px;
+
+    background:#111;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:21px;
+    font-weight:400;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.08);
+}
+
+.mentes-kuldes-gomb i{
+    color:#d5b790;
+
+    font-size:20px;
+}
+
+.mentes-kuldes-gomb:active{
+    transform:scale(.99);
+}
+
+.push-szamlalo{
+    margin:16px 2px 0;
+
+    font-size:14px;
+
+    color:#332f2b;
+}
+
+/* =========================
+   FELVITT TÁVOLLÉTEK
+========================= */
+
+.felvitt-resz{
+    margin-top:48px;
+}
+
+.felvitt-resz > h2{
+    margin:0 0 22px;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:30px;
+    font-weight:400;
+
+    color:#211f1d;
+}
+
+.felvitt-lista{
+    width:100%;
+}
+
+.ures-felvitt-lista{
+    width:100%;
+
+    padding:26px 20px;
+
+    text-align:center;
+
+    border:1px dashed #d3ccc5;
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.42);
+
+    color:#8b8580;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:17px;
+}
+
+/* =========================
+   ALSÓ DÍSZ
+========================= */
+
+.lotusz{
+    margin-top:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:16px;
+
+    color:#aaa49e;
+}
+
+.lotusz span{
+    width:75px;
+    height:1px;
+
+    background:#cbc4bd;
+}
+
+.lotusz div{
+    font-size:24px;
+    line-height:1;
+}
+
+/* =========================
+   MOBIL
+========================= */
+
+@media (max-width:600px){
+
+    .admin-fejlec{
+        min-height:78px;
+
+        padding:10px 14px;
+    }
+
+    .fo-gomb{
+        min-height:40px;
+
+        padding:0 15px;
+
+        font-size:12px;
+    }
+
+    .tavollet-oldal{
+        width:
+            calc(100% - 28px);
+
+        margin:
+            46px auto 30px;
+    }
+
+    .cim-resz{
+        margin-bottom:28px;
+    }
+
+    .cim-resz h1{
+        font-size:29px;
+    }
+
+    .arany-vonal{
+        width:42px;
+
+        margin:
+            19px auto 21px;
+    }
+
+    .cim-resz p{
+        font-size:11px;
+        line-height:1.5;
+
+        letter-spacing:.08em;
+    }
+
+    .tavollet-kartya{
+        padding:
+            22px 18px;
+
+        border-radius:22px;
+    }
+
+    .mezo-csoport{
+        margin-bottom:28px;
+    }
+
+    .mezo-csoport h2{
+        margin-bottom:14px;
+
+        font-size:20px;
+    }
+
+    .ok-valaszto{
+        min-height:58px;
+
+        padding:0 15px;
+
+        gap:12px;
+
+        border-radius:12px;
+    }
+
+    .ok-valaszto i{
+        font-size:20px;
+    }
+
+    .ok-valaszto > span:last-child{
+        font-size:15px;
+    }
+
+    /* =========================
+       DÁTUMOK MOBILON
+    ========================= */
+
+    .datumok{
+        grid-template-columns:1fr;
+
+        gap:16px;
+    }
+
+    .datum-mezo{
+        width:100%;
+        min-width:0;
+    }
+
+    .datum-mezo label{
+        margin-bottom:7px;
+
+        font-size:12px;
+    }
+
+    .datum-mezo input{
+        width:100%;
+        max-width:100%;
+
+        height:54px;
+
+        padding:0 12px;
+
+        font-size:14px;
+    }
+
+    .uzenet-fejlec{
+        display:block;
+    }
+
+    .uzenet-fejlec span{
+        display:block;
+
+        margin-top:-7px;
+        margin-bottom:12px;
+    }
+
+    #tavolletUzenet{
+        min-height:155px;
+
+        padding:15px;
+
+        font-size:14px;
+    }
+
+    .mentes-kuldes-gomb{
+        min-height:60px;
+
+        border-radius:16px;
+
+        font-size:19px;
+    }
+
+    .push-szamlalo{
+        margin-top:14px;
+
+        font-size:13px;
+    }
+
+    .felvitt-resz{
+        margin-top:40px;
+    }
+
+    .felvitt-resz > h2{
+        margin-bottom:18px;
+
+        font-size:27px;
+    }
+
+    .ures-felvitt-lista{
+        padding:23px 16px;
+
+        font-size:16px;
+    }
+
+    .lotusz{
+        margin-top:40px;
+    }
+}
+
+/* =========================
+   KIS TELEFON
+========================= */
+
+@media (max-width:360px){
+
+    .tavollet-oldal{
+        width:
+            calc(100% - 20px);
+    }
+
+    .tavollet-kartya{
+        padding:
+            20px 14px;
+    }
+
+    .cim-resz h1{
+        font-size:25px;
+    }
+
+    .datumok{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .datum-mezo input{
+        height:52px;
+
+        font-size:14px;
+    }
+}
+

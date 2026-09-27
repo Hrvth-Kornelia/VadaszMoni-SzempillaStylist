@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-width: 300px;
+    min-height: 100vh;
+    background: #fbfaf9;
+    color: #faf6f6;
+    font-family: Arial, sans-serif;
+}
+.login-oldal {
+    min-height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-kartya {
+    width: 100%;
+    max-width: 430px;
+    padding: 42px 35px;
+    background: rgb(0, 0, 0);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(45,28,23,.08);
+}
+.marka {
+    margin: 0 0 12px;
+    color: #eeead6;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+h1 {
+    margin: 0;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+.vonal {
+    width: 50px;
+    height: 1px;
+    margin: 22px auto;
+    background: #817463;
+}
+.alcim {
+    margin: 0 0 35px;
+    color: #c6c4c4;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 15px;
+}
+label {
+    display: block;
+    margin: 0 0 8px;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+input {
+    width: 100%;
+    height: 55px;
+    margin-bottom: 22px;
+    padding: 0 15px;
+    border: 1px solid #ddd2ca;
+    border-radius: 8px;
+    outline: none;
+    background: white;
+    font-size: 16px;
+}
+input:focus {
+    border-color: #b98252;
+}
+.jelszo-mezo {
+    position: relative;
+}
+.jelszo-mezo input {
+    padding-right: 55px;
+}
+#jelszoMutat {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 52px;
+    height: 55px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #8e7a70;
+    cursor: pointer;
+}
+#hiba {
+    display: none;
+    margin: -5px 0 18px;
+    color: #a33b32;
+    text-align: center;
+    font-size: 13px;
+}
+#belepes {
+    width: 100%;
+    height: 58px;
+    border: 0;
+    border-radius: 8px;
+    border: 1px solid wheat;
+    background: #4a4a4a;
+    background: linear-gradient(to left,#3d3d3d,#3f3f3f);
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+#belepes:disabled {
+    opacity: .6;
+}
+@media (max-width: 450px) {
+    .login-oldal {
+        padding: 18px 12px;
+    }
+    .login-kartya {
+        padding: 32px 20px;
+    }
+    h1 {
+        font-size: 26px;
+    }
+}
+@media (max-width: 350px) {
+    .login-oldal {
+        padding: 12px 8px;
+    }
+    .login-kartya {
+        padding: 28px 14px;
+    }
+    h1 {
+        font-size: 23px;
+    }
+    .alcim {
+        font-size: 13px;
+    }
+    input {
+        height: 50px;
+    }
+    #jelszoMutat {
+        height: 50px;
+    }
+    #belepes {
+        height: 52px;
+    }
+}

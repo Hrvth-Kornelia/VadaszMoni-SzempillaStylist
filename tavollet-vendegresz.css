@@ -1,0 +1,649 @@
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --header-background:#2e2e2e;
+    --header-background-end:#151515;
+    --page-background:#f8f4ef;
+    --page-background-soft:#fffdf9;
+    --body-text:#332d29;
+    --taupe:#a98d78;
+    --champagne:#c8aa8e;
+    --header-height:88px;
+    --header-text:#f7f4f2;
+    --header-border:#f1e9c4;
+}
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    overflow-x:hidden;
+}
+
+body{
+    min-width:300px;
+    min-height:100vh;
+    background:
+        linear-gradient(
+            180deg,
+            var(--page-background) 0%,
+            var(--page-background-soft) 100%
+        );
+    color:var(--body-text);
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+    font-weight:300;
+}
+
+a{
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+/* =========================
+   FEJLÉC
+========================= */
+
+.luxoria-header{
+    position:relative;
+    z-index:50;
+    width:100%;
+    min-height:
+        var(--header-height);
+    padding: 10px 16px;
+    display:flex;
+    align-items:center;
+    background:
+        linear-gradient(
+            100deg,
+            var(--header-background) 0%,
+            var(--header-background-end) 100%
+        );
+    border-bottom:
+    1px solid
+    rgba(230,195,168,.18);
+    box-shadow:
+    0 8px 22px
+     rgba(46,27,20,.10);
+}
+
+
+/* =========================
+   FŐOLDAL GOMB
+========================= */
+
+.home-button{
+    min-height:42px;
+    margin-left:10px;
+    padding:0 18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    border:1px solid
+    var(--header-border);
+    border-radius:999px;
+    color:
+    var(--header-text);
+    background:
+     rgba(255,255,255,.01);
+    font-family:"Bodoni Moda",Georgia, serif;
+    font-size:14px;
+    font-weight:400;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    text-decoration:none;
+}
+
+.home-button i{
+    font-size:21px;
+    line-height:1;
+}
+
+
+/* =========================
+   ADMIN GOMB
+========================= */
+
+.bejelentkezes{
+    width:44px;
+    height:44px;
+    margin-left:auto;
+    border:1.3px solid#f1e9c4;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    background:transparent;
+}
+
+.bejelentkezes .bi-person{
+    font-size:21px;
+    color:#f1e9c4;
+}
+.bejelentkezes:hover
+{background-color: #d8c48f;
+    transform: translateY(-1px);
+}
+.bi-person:hover{
+    color: #1d1d1d;
+}
+
+
+/* =========================
+   OLDAL
+========================= */
+
+.tavolletek-oldal{
+    width:90%;
+    max-width:700px;
+    margin:62px auto 45px;
+    text-align:center;
+}
+
+/* =========================
+   CÍM
+========================= */
+
+.tavolletek-oldal h1{
+    margin:0;
+    font-family:
+        "Bodoni Moda",
+        Georgia,
+        serif;
+    font-size:42px;
+    line-height:1.08;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    color:#1e1d1b;
+}
+
+
+/* =========================
+   ARANY VONAL
+========================= */
+
+.arany-vonal{
+    width:48px;
+    height:1px;
+    margin:22px auto 28px;
+    background:#a4957f;
+}
+
+/* =========================
+   ALCÍM
+========================= */
+
+.alcim{
+    margin:0 0 42px;
+    color:#3b3a3a;
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+    font-size:14px;
+    font-weight:300;
+    letter-spacing:.11em;
+}
+
+/* =========================
+   LISTA
+========================= */
+
+#vendegTavolletLista{
+    width:100%;
+}
+
+/* =========================
+   TÁVOLLÉT KÁRTYA
+========================= */
+
+.tavollet-kartya{
+    width:100%;
+    max-width:640px;
+    margin: 0 auto 18px;
+    padding:26px 28px;
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+    text-align:left;
+    background:#fffdf9;
+    border: 1px solid #ded4ca;
+    border-radius:24px;
+    box-shadow:0 7px 22px rgba(45,28,23,.05);
+}
+
+
+/* =========================
+   IKON
+========================= */
+
+.tavollet-ikon{
+    width:76px;
+    height:76px;
+    flex:
+        0 0 76px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#000000;
+    color:#e5dab1;
+    font-size:34px;
+}
+
+
+/* =========================
+   SZÖVEG
+========================= */
+
+.tavollet-tartalom{
+    flex:1;
+    min-width:0;
+}
+
+.tavollet-tipus{
+    margin:0 0 7px;
+    font-family:"Bodoni Moda", Georgia, serif;
+    font-size:25px;
+    line-height:1.15;
+    font-weight:800;
+    color:#211f1d;
+    font-weight: 700;
+}
+
+.tavollet-datum{
+    margin:0;
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:21px;
+    line-height:1.35;
+    color:#211f1d;
+}
+
+.tavollet-uzenet{
+    margin:16px 0 0;
+    color:#434242;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size:15px;
+    font-weight:300;
+    line-height:1.6;
+    letter-spacing:.02em;
+}
+
+
+/* =========================
+   NINCS TÁVOLLÉT
+========================= */
+
+.nincs-tavollet-allapot{
+    padding:
+        15px 15px 0;
+
+    text-align:center;
+}
+
+
+/* =========================
+   NAGY IKON
+========================= */
+
+.naptar-ikon{
+    position:relative;
+    width:100px;
+    height:92px;
+    margin: 0 auto 26px;
+    color:#9e9a95;
+}
+
+.naptar-ikon .bi-calendar4{
+    position:absolute;
+    left:6px;
+    top:0;
+    font-size:70px;
+    line-height:1;
+}
+
+.naptar-ikon .bi-check-circle{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#f8f4ef;
+    font-size:40px;
+    line-height:1;
+}
+
+
+/* =========================
+   ÜRES ÁLLAPOT CÍM
+========================= */
+
+.nincs-tavollet-allapot h2{
+    margin:0;
+
+    font-family:
+        "Bodoni Moda",
+        Georgia,
+        serif;
+
+    font-size:26px;
+    line-height:1.2;
+    font-weight:400;
+    color:#211f1d;
+}
+
+.nincs-tavollet-allapot p{
+    margin:18px 0 0;
+    font-family:"Montserrat", Arial, sans-serif;
+    font-size:13px;
+    font-weight:300;
+    letter-spacing:.10em;
+    color:#99938e;
+}
+
+.ures-lista{
+    margin:0;
+    font-family:"Montserrat", Arial, sans-serif;
+    font-size:13px;
+    color:#99938e;
+}
+
+
+/* =========================
+   ALSÓ DÍSZ
+========================= */
+
+.lotusz{
+    margin-top:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    color:#ad8c67;
+}
+
+.lotusz span{
+    width:75px;
+    height:1px;
+    background:#b69a79;
+}
+
+.lotusz div{
+    font-size:22px;
+    line-height:1;
+}
+
+
+/* =========================
+   MOBIL
+========================= */
+
+@media(max-width:600px){
+
+    :root{
+        --header-height:78px;
+    }
+
+    .luxoria-header{
+        padding:
+            9px 12px;
+    }
+
+    .home-button{
+        min-height:40px;
+
+        margin-left:2px;
+
+        padding:
+            0 15px;
+
+        font-size:13px;
+
+        gap:8px;
+    }
+
+    .home-button i{
+        font-size:19px;
+    }
+
+    .bejelentkezes{
+        width:42px;
+        height:42px;
+    }
+
+    .bejelentkezes .bi-person{
+        font-size:20px;
+    }
+
+    .tavolletek-oldal{
+        width:
+            calc(100% - 32px);
+
+        margin:
+            52px auto 30px;
+    }
+
+    .tavolletek-oldal h1{
+        font-size:34px;
+    }
+
+    .arany-vonal{
+        width:42px;
+
+        margin:
+            20px auto 24px;
+    }
+
+    .alcim{
+        margin-bottom:34px;
+
+        font-size:12px;
+
+        letter-spacing:.08em;
+    }
+
+    .tavollet-kartya{
+        width:100%;
+
+        padding:
+            22px 20px;
+
+        gap:16px;
+
+        border-radius:20px;
+    }
+
+    .tavollet-ikon{
+        width:58px;
+        height:58px;
+
+        flex:
+            0 0 58px;
+
+        font-size:27px;
+    }
+
+    .tavollet-tipus{
+        font-size:22px;
+    }
+
+    .tavollet-datum{
+        font-size:19px;
+    }
+
+    .tavollet-uzenet{
+        margin-top:13px;
+
+        font-size:12px;
+
+        line-height:1.55;
+    }
+
+    .nincs-tavollet-allapot{
+        padding:
+            8px 10px 0;
+    }
+
+    .naptar-ikon{
+        width:88px;
+        height:82px;
+
+        margin-bottom:22px;
+    }
+
+    .naptar-ikon .bi-calendar4{
+        font-size:62px;
+    }
+
+    .naptar-ikon .bi-check-circle{
+        width:40px;
+        height:40px;
+
+        font-size:36px;
+    }
+
+    .nincs-tavollet-allapot h2{
+        font-size:22px;
+    }
+
+    .nincs-tavollet-allapot p{
+        margin-top:16px;
+
+        font-size:11px;
+
+        letter-spacing:.08em;
+    }
+
+    .lotusz{
+        margin-top:40px;
+
+        gap:12px;
+    }
+
+    .lotusz span{
+        width:48px;
+    }
+
+    .lotusz div{
+        font-size:18px;
+    }
+}
+
+
+/* =========================
+   KICSI TELEFON
+========================= */
+
+@media(max-width:350px){
+
+    :root{
+        --header-height:72px;
+    }
+
+    .luxoria-header{
+        padding:
+            8px 9px;
+    }
+
+    .home-button{
+        min-height:36px;
+
+        padding:
+            0 12px;
+
+        font-size:11px;
+
+        gap:6px;
+    }
+
+    .home-button i{
+        font-size:18px;
+    }
+
+    .bejelentkezes{
+        width:38px;
+        height:38px;
+    }
+
+    .bejelentkezes .bi-person{
+        font-size:18px;
+    }
+
+    .tavolletek-oldal{
+        width:
+            calc(100% - 24px);
+
+        margin:
+            45px auto 25px;
+    }
+
+    .tavolletek-oldal h1{
+        font-size:29px;
+    }
+
+    .alcim{
+        font-size:10px;
+    }
+
+    .tavollet-kartya{
+        padding:
+            18px 15px;
+
+        gap:12px;
+    }
+
+    .tavollet-ikon{
+        width:48px;
+        height:48px;
+
+        flex:
+            0 0 48px;
+
+        font-size:22px;
+    }
+
+    .tavollet-tipus{
+        font-size:19px;
+    }
+
+    .tavollet-datum{
+        font-size:16px;
+    }
+
+    .tavollet-uzenet{
+        font-size:11px;
+    }
+
+    .naptar-ikon{
+        width:80px;
+        height:74px;
+    }
+
+    .naptar-ikon .bi-calendar4{
+        font-size:56px;
+    }
+
+    .naptar-ikon .bi-check-circle{
+        width:36px;
+        height:36px;
+
+        font-size:32px;
+    }
+
+    .nincs-tavollet-allapot h2{
+        font-size:20px;
+    }
+}

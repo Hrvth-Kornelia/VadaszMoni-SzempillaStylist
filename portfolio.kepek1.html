@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Kornélia's Card</title>
+<link rel="manifest" href="manifest.json?=2">
+
+<meta name="theme-color" content="#151515">
+<meta name="background-color" content="#ffffff">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Az app neve">
+<link rel="apple-touch-icon" href="icon.192.jfif">
+
+<link rel="icon" type="image/jpeg" sizes="192x192" href="192favicon.jfif">
+<link rel="icon" type="image/jpeg" sizes="512x512" href="icon.512.jfif">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link id="main-css" rel="stylesheet" href="portfolio.kepek1.css">
+</head>
+
+<body>
+
+<header class="luxoria-header">
+  <a href="index.html" class="home-button">
+    <i class="bi bi-house"></i>
+    Főoldal
+  </a>
+</header>
+
+<main class="galeria">
+
+  <div class="mobil-cim">
+    <div class="mobil-kiscim">PORTFÓLIÓ</div>
+
+    <h1>
+      Szempilla
+      <span>Építés</span>
+    </h1>
+
+    <div class="cim-vonal"></div>
+  </div>
+
+  <div class="galeria-wrapper">
+
+    <button
+      class="nyil bal"
+      id="elozo"
+      type="button"
+      aria-label="Előző képek"
+    >
+      ‹
+    </button>
+
+    <div
+      class="kepek-container"
+      id="kepekContainer"
+    ></div>
+
+    <button
+      class="nyil jobb"
+      id="kovetkezo"
+      type="button"
+      aria-label="Következő képek"
+    >
+      ›
+    </button>
+
+  </div>
+
+  <div class="mobil-pontok" id="mobilPontok"></div>
+
+  <div class="mobil-alcim">
+    <span></span>
+    <p>TERMÉSZETES ELEGANCIA</p>
+    <span></span>
+  </div>
+
+</main>
+
+<script src="portfolio-galeria.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,424 @@
+@font-face{
+font-family:"DidotPro";
+src:url("webfont-type/font.woff2") format("woff2"),url("webfont-type/font.woff") format("woff");
+font-weight:200;
+font-style:normal;
+font-display:swap;
+}
+:root{
+--paper:#f8f4ef;
+--paper-strong:#fffdf9;
+--ink:#332d29;
+--taupe:#a98d78;
+--champagne:#c8aa8e;
+--white:#fffdf9;
+--header-height:104px;
+--header-background:#2e2e2e;
+--header-background-end:#151515;
+--header-text:#f7f4f2;
+--header-border:#f1e9c4;
+}
+*{
+box-sizing:border-box;
+}
+html{
+min-width:300px;
+scroll-behavior:smooth;
+background:var(--page-background);
+}
+body{
+margin:0;
+min-width:300px;
+min-height:100vh;
+background:linear-gradient(180deg,var(--page-background) 0%,var(--page-background-soft) 100%);
+color:var(--body-text);
+font-family:"Montserrat",Arial,sans-serif;
+font-weight:300;
+}
+a{
+-webkit-tap-highlight-color:transparent;
+}
+.luxoria-header{
+position:relative;
+top:0;
+z-index:50;
+width:100%;
+min-height:var(--header-height);
+padding:calc(17px + env(safe-area-inset-top)) clamp(18px,4vw,52px) 17px;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+background:linear-gradient(100deg,var(--header-background) 0%,var(--header-background-end) 100%);
+border-bottom:1px solid rgba(230,195,168,.2);
+box-shadow:0 12px 32px rgba(46,27,20,.12);
+}
+.home-button{
+min-height:56px;
+padding:0 21px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:11px;
+border:1px solid var(--header-border);
+border-radius:11px;
+color:var(--header-text);
+background:rgba(255,255,255,.015);
+font-family:"Montserrat",Arial,sans-serif;
+font-size:16px;
+font-weight:400;
+line-height:1;
+letter-spacing:.01em;
+text-decoration:none;
+box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+transition:color .25s ease,border-color .25s ease,background-color .25s ease,transform .25s ease;
+}
+.home-button i{
+font-size:25px;
+line-height:1;
+}
+.home-button:hover{
+color:#fff5ed;
+border-color:#dfaa84;
+background:rgba(255,255,255,.055);
+transform:translateY(-1px);
+}
+.home-button:active{
+transform:translateY(0);
+}
+.home-button:focus-visible{
+outline:2px solid #e8bd9e;
+outline-offset:4px;
+}
+.price-page{
+position:relative;
+width:100%;
+padding:0 clamp(20px,5vw,72px);
+overflow:hidden;
+}
+.price-page::before{
+content:"";
+position:absolute;
+top:-80px;
+left:50%;
+width:min(1100px,95vw);
+height:520px;
+transform:translateX(-50%);
+background:radial-gradient(circle,rgba(194,147,112,.09) 0%,rgba(194,147,112,0) 68%);
+pointer-events:none;
+}
+.page-intro{
+position:relative;
+z-index:1;
+width:min(100%,760px);
+margin: 0 auto;
+padding:76px 0 82px;
+text-align:center;
+}
+.page-intro h1{
+margin:0;
+color:var(--main-title);
+font-family:"Bodoni Moda";
+font-size:clamp(18px,2vw,23px);
+font-weight:400;
+line-height:1.45;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+.price-list{
+position:relative;
+z-index:1;
+width:min(100%,var(--content-width));
+margin:0 auto;
+padding:0 0 120px;
+display:grid;
+grid-template-columns:1fr;
+gap:106px;
+}
+.price-category{
+width:100%;
+}
+.category-eyelash,
+.category-lifting,
+.category-eyebrow,
+.category-informaciok{
+margin:0 0 24px;
+color:var(--eyebrow);
+font-family:"Montserrat",Arial,sans-serif;
+font-size:11px;
+font-weight:500;
+line-height:1.4;
+letter-spacing:.30em;
+text-transform:uppercase;
+}
+.price-category h2{
+margin:0;
+color:var(--heading);
+font-family:"Bodoni Moda","DidotPro",Didot,serif;
+font-size:clamp(52px,7vw,62px);
+font-weight:500;
+line-height:.84;
+letter-spacing:-.045em;
+}
+.price-category h2 span{
+display:block;
+}
+.category-line{
+width:118px;
+height:1px;
+margin:38px 0 31px;
+background: #bab689
+}
+.price-row{
+position:relative;
+min-height:64px;
+padding:19px 0;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:24px;
+border-bottom:1px solid rgba(180,136,103,.22);
+}
+.price-row:first-of-type{
+border-top:1px solid rgba(180,136,103,.22);
+}
+.service-name{
+color:var(--body-text);
+font-family:"Montserrat",Arial,sans-serif;
+font-size:15px;
+font-weight:300;
+line-height:1.55;
+letter-spacing:.015em;
+}
+.service-price{
+flex-shrink:0;
+color:#c2a17a;
+font-family:"Bodoni Moda","DidotPro",Didot,serif;
+font-size:22px;
+font-weight:500;
+line-height:1;
+letter-spacing:-.015em;
+white-space:nowrap;
+}
+.price-category{
+position:relative;
+}
+.price-category::after{
+content:"";
+position:absolute;
+top:12px;
+right:0;
+width:46px;
+height:46px;
+border-top:1px solid rgba(180,136,103,.18);
+border-right:1px solid rgba(180,136,103,.18);
+pointer-events:none;
+}
+.price-category:nth-child(even)::after{
+top:auto;
+right:auto;
+bottom:0;
+left:0;
+border-top:0;
+border-right:0;
+border-bottom:1px solid rgba(180,136,103,.18);
+border-left:1px solid rgba(180,136,103,.18);
+}
+.price-category:hover .category-line{
+width:164px;
+}
+.category-line{
+transition:width .45s ease;
+}
+.price-row{
+transition:
+padding-left .3s ease,
+padding-right .3s ease,
+background-color .3s ease;
+}
+.price-row:hover{
+padding-left:10px;
+padding-right:10px;
+background:rgba(187,143,109,.035);
+}
+.price-row:hover .service-price{
+color:var(--price-strong);
+}
+.service-price{
+transition:color .25s ease;
+}
+.luxoria-footer{
+width:100%;
+height:34px;
+background:var(--header-background);
+border-top:1px solid rgba(207,170,141,.25);
+}
+
+/* ===========================
+   Desktop
+=========================== */
+
+@media (min-width:1050px){
+
+.price-list{
+grid-template-columns:repeat(2,minmax(0,1fr));
+column-gap:120px;
+row-gap:120px;
+align-items:start;
+}
+.price-category{
+padding-right:10px;
+}
+.page-intro{
+padding:90px 0 95px;
+}
+.price-page{
+padding-inline:70px;
+}
+
+}
+
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (min-width:700px) and (max-width:1049px){
+
+.price-list{
+grid-template-columns:1fr 1fr;
+gap:70px;
+}
+.price-category h2{
+font-size:60px;
+}
+.page-intro{
+padding:75px 0;
+}
+
+}
+
+
+/* ===========================
+   Mobil
+=========================== */
+
+@media (max-width:699px){
+
+:root{
+--header-height:90px;
+}
+.luxoria-header{
+padding:10px;
+}
+.home-button{
+width:100%;
+max-width:320px;
+}
+.page-intro{
+padding:55px 0 45px;
+}
+.page-intro h1{
+font-size:17px;
+letter-spacing:.14em;
+}
+.price-page{
+padding-inline:22px;
+}
+.price-list{
+gap:70px;
+padding-bottom:70px;
+}
+.price-category h2{
+font-size:48px;
+line-height:.92;
+}
+.category-line{
+width:85px;
+margin:26px 0;
+}
+.price-row{
+padding:16px 0;
+gap:14px;
+}
+.service-name{
+font-size:14px;
+}
+.service-price{
+font-size:19px;
+}
+.price-row--primary .service-price{
+font-size:22px;
+}
+.price-category::after{
+display:none;
+}
+.price-row:hover{
+padding-left:0;
+padding-right:0;
+background:transparent;
+}
+.category-line,
+.price-category:hover .category-line{
+width:85px;
+}
+
+}
+
+
+/* ===========================
+   Kis mobil
+=========================== */
+
+@media (max-width:430px){
+
+.price-page{
+padding-inline:18px;
+}
+.price-category h2{
+font-size:40px;
+}
+.service-name{
+font-size:13px;
+}
+.service-price{
+font-size:17px;
+}
+.price-row--primary .service-price{
+font-size:20px;
+}
+.home-button{
+font-size:14px;
+min-height:52px;
+}
+.home-button i{
+font-size:20px;
+}
+
+}
+
+@media (max-width:380px){
+
+.price-page{
+padding-inline:18px;
+}
+.price-category h2{
+font-size:37px;
+}
+.service-name{
+font-size:13px;
+}
+.service-price{
+font-size:15px;
+}
+.price-row--primary .service-price{
+font-size:18px;
+}
+.home-button{
+font-size:14px;
+min-height:52px;
+}
+.home-button i{
+font-size:20px;
+}
+
+}

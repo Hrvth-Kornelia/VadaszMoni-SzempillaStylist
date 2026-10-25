@@ -1,0 +1,787 @@
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+:root{
+    --black:#171717;
+    --black-soft:#232323;
+    --cream:#f4f1ed;
+    --white:#fffdf9;
+    --text:#1f1d1b;
+    --gray:#8f8983;
+    --border:#ded7d0;
+    --gold:#c59a66;
+    --gold-dark:#9f7548;
+    --gold-light:#e8cfaa;
+    --selected:#171717;
+}
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    overflow-x:hidden;
+}
+
+body{
+    min-width:300px;
+    min-height:100vh;
+    background:linear-gradient(
+        180deg,
+        #f4f1ed 0%,
+        #faf7f2 100%
+    );
+    color:var(--text);
+    font-family:"Montserrat",Arial,sans-serif;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+/* =========================
+   FEJLÉC
+========================= */
+
+.admin-fejlec{
+    position:relative;
+    width:100%;
+    min-height:100px;
+    padding:18px 28px;
+    display:flex;
+    align-items:center;
+
+    background:linear-gradient(
+        110deg,
+        #191919 0%,
+        #111111 100%
+    );
+
+    border-bottom:1px solid rgba(197,154,102,.25);
+    overflow:hidden;
+}
+
+.admin-fejlec::before,
+.admin-fejlec::after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(197,154,102,.8);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+.admin-fejlec::before{
+    width:190px;
+    height:190px;
+    right:-100px;
+    top:-120px;
+}
+
+.admin-fejlec::after{
+    width:250px;
+    height:250px;
+    right:-150px;
+    top:-155px;
+}
+
+.fo-gomb{
+    position:relative;
+    z-index:2;
+
+    min-height:48px;
+    padding:0 22px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    border:1px solid #e7d9bf;
+    border-radius:999px;
+
+    color:#f9f5ec;
+    text-decoration:none;
+    text-transform:uppercase;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:14px;
+    letter-spacing:1.3px;
+}
+
+.fo-gomb i{
+    font-size:21px;
+}
+
+/* =========================
+   OLDAL
+========================= */
+
+.tavollet-oldal{
+    width:92%;
+    max-width:760px;
+    margin:28px auto 50px;
+}
+
+/* =========================
+   FŐ KÁRTYA
+========================= */
+
+.tavollet-kartya{
+    width:100%;
+    padding:34px;
+
+    background:var(--white);
+    border:1px solid #e6ded5;
+    border-radius:28px;
+
+    box-shadow:0 12px 34px rgba(0,0,0,.05);
+}
+
+/* =========================
+   FŐ CÍM
+========================= */
+
+.cim-resz{
+    margin-bottom:42px;
+    text-align:center;
+}
+
+.cim-resz h1{
+    margin:0;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:40px;
+    line-height:1.03;
+    font-weight:400;
+
+    text-transform:uppercase;
+    color:#171717;
+}
+
+.arany-vonal{
+    width:50px;
+    height:1px;
+    margin:20px auto 18px;
+
+    background:var(--gold);
+}
+
+.cim-resz p{
+    margin:0;
+
+    color:#8e8882;
+    font-size:13px;
+    font-weight:300;
+    letter-spacing:.05em;
+}
+
+/* =========================
+   MEZŐCSOPORTOK
+========================= */
+
+.mezo-csoport{
+    margin-bottom:34px;
+}
+
+.mezo-csoport:last-child{
+    margin-bottom:0;
+}
+
+.mezo-csoport h2,
+.uzenet-fejlec h2{
+    position:relative;
+
+    margin:0 0 18px;
+    padding-left:18px;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:21px;
+    font-weight:400;
+
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+
+    color:#171717;
+}
+
+.mezo-csoport h2::before,
+.uzenet-fejlec h2::before{
+    content:"";
+    position:absolute;
+
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:2px;
+    height:28px;
+
+    background:var(--gold);
+    border-radius:2px;
+}
+
+/* =========================
+   TÁVOLLÉT OKA
+========================= */
+
+.ok-valaszto{
+    position:relative;
+
+    min-height:68px;
+    margin-bottom:10px;
+    padding:0 18px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    background:#fff;
+    border:1px solid #ded8d2;
+    border-radius:16px;
+
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.ok-valaszto:last-child{
+    margin-bottom:0;
+}
+
+.ok-valaszto input{
+    position:absolute;
+    opacity:0;
+}
+
+.radio-jel{
+    position:relative;
+
+    width:22px;
+    height:22px;
+    flex:0 0 22px;
+
+    border:2px solid #73706c;
+    border-radius:50%;
+    background:#fff;
+}
+
+.ok-valaszto input:checked + .radio-jel{
+    border-color:#f6f0e8;
+}
+
+.ok-valaszto input:checked + .radio-jel::after{
+    content:"";
+    position:absolute;
+    inset:4px;
+
+    border-radius:50%;
+    background:var(--gold);
+}
+
+.ok-valaszto:has(input:checked){
+    background:linear-gradient(
+        100deg,
+        #181818 0%,
+        #222222 100%
+    );
+
+    border-color:var(--gold);
+}
+
+.ok-valaszto i{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#171717;
+    border:1px solid #3b3834;
+
+    font-size:21px;
+    color:transparent;
+}
+
+.ok-valaszto i::before{
+    background:linear-gradient(
+        180deg,
+        #eed8b7 0%,
+        #d8b17d 55%,
+        #b98550 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.ok-valaszto:has(input:checked) i{
+    background:#f6ecdc;
+    border-color:#dcc29f;
+}
+
+.ok-valaszto:has(input:checked) i::before{
+    background:linear-gradient(
+        180deg,
+        #c49256 0%,
+        #9f7548 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.ok-valaszto > span:last-child{
+    font-size:16px;
+    font-weight:500;
+    color:#252321;
+}
+
+.ok-valaszto:has(input:checked) > span:last-child{
+    color:#fffaf4;
+}
+
+/* =========================
+   DÁTUMOK
+========================= */
+
+.datumok{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.datum-mezo{
+    min-width:0;
+}
+
+.datum-mezo label{
+    display:block;
+    margin-bottom:8px;
+
+    color:#4f4b47;
+
+    font-size:12px;
+    font-weight:400;
+
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+}
+
+.datum-mezo input{
+    width:100%;
+    height:58px;
+
+    padding:0 16px;
+
+    border:1px solid #d6d0ca;
+    border-radius:13px;
+
+    outline:none;
+
+    background:#f7f5f2;
+    color:#252321;
+
+    font-size:14px;
+
+    appearance:none;
+    -webkit-appearance:none;
+}
+
+.datum-mezo input:focus{
+    border-color:var(--gold);
+
+    box-shadow:0 0 0 2px rgba(197,154,102,.10);
+}
+
+.datum-mezo input::-webkit-calendar-picker-indicator{
+    opacity:.85;
+
+    filter:
+        sepia(1)
+        saturate(.7)
+        hue-rotate(345deg)
+        brightness(.8);
+
+    cursor:pointer;
+}
+
+/* =========================
+   ÜZENET
+========================= */
+
+.uzenet-fejlec{
+    display:block;
+    margin-bottom:14px;
+}
+
+.uzenet-fejlec h2{
+    margin-bottom:6px;
+}
+
+.uzenet-fejlec span{
+    display:block;
+
+    margin-left:18px;
+
+    color:#9e9994;
+    font-size:12px;
+
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+}
+
+#tavolletUzenet{
+    width:100%;
+    min-height:160px;
+
+    padding:18px;
+
+    resize:vertical;
+    outline:none;
+
+    border:1px solid #d6d0ca;
+    border-radius:14px;
+
+    background:#f7f5f2;
+
+    color:#252321;
+
+    font-size:15px;
+    line-height:1.55;
+}
+
+#tavolletUzenet::placeholder{
+    color:#aaa6a1;
+}
+
+#tavolletUzenet:focus{
+    border-color:var(--gold);
+
+    box-shadow:0 0 0 2px rgba(197,154,102,.10);
+}
+
+.karakter-szamlalo{
+    margin-top:8px;
+
+    text-align:right;
+
+    color:#8e8882;
+
+    font-size:12px;
+}
+
+/* =========================
+   MENTÉS ÉS KÜLDÉS
+========================= */
+
+.kuldes-resz{
+    margin-top:28px;
+}
+
+.mentes-kuldes-gomb{
+    width:100%;
+    min-height:62px;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    background:linear-gradient(
+        100deg,
+        #191919 0%,
+        #242424 100%
+    );
+
+    border:1px solid #292929;
+    border-radius:15px;
+
+    color:#f8f4ed;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:18px;
+    font-weight:400;
+
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.mentes-kuldes-gomb i{
+    color:var(--gold);
+    font-size:20px;
+}
+
+.mentes-kuldes-gomb:active{
+    transform:scale(.99);
+}
+
+.push-szamlalo{
+    margin:12px 0 0;
+
+    text-align:center;
+
+    color:#77716c;
+
+    font-size:13px;
+}
+
+/* =========================
+   FELVITT TÁVOLLÉTEK
+========================= */
+
+.felvitt-resz{
+    margin-top:42px;
+}
+
+.felvitt-resz > h2{
+    position:relative;
+
+    margin:0 0 20px;
+    padding-left:18px;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:22px;
+    font-weight:400;
+
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+
+    color:#211f1d;
+}
+
+.felvitt-resz > h2::before{
+    content:"";
+    position:absolute;
+
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:2px;
+    height:28px;
+
+    background:var(--gold);
+}
+
+.felvitt-lista{
+    width:100%;
+}
+
+.ures-felvitt-lista{
+    padding:26px 20px;
+
+    text-align:center;
+
+    background:#fff;
+    border:1px dashed #d3ccc5;
+    border-radius:15px;
+
+    color:#8b8580;
+
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:17px;
+}
+
+/* =========================
+   ALSÓ DÍSZ
+========================= */
+
+.lotusz{
+    margin-top:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+
+    color:var(--gold);
+}
+
+.lotusz span{
+    width:75px;
+    height:1px;
+
+    background:#cdbda9;
+}
+
+.lotusz div{
+    font-size:24px;
+}
+
+/* =========================
+   TABLET / MOBIL
+========================= */
+
+@media (max-width:700px){
+
+    .tavollet-oldal{
+        width:calc(100% - 28px);
+        max-width:calc(100% - 28px);
+    }
+
+    .tavollet-kartya{
+        padding:24px 18px;
+        border-radius:24px;
+    }
+
+    .datumok{
+        grid-template-columns:1fr;
+    }
+
+    .cim-resz h1{
+        font-size:34px;
+    }
+
+    .mezo-csoport h2,
+    .uzenet-fejlec h2{
+        font-size:19px;
+    }
+}
+
+/* =========================
+   MOBIL
+========================= */
+
+@media (max-width:600px){
+
+    .admin-fejlec{
+        min-height:82px;
+        padding:12px 14px;
+    }
+
+    .fo-gomb{
+        min-height:42px;
+        padding:0 16px;
+        font-size:12px;
+    }
+
+    .tavollet-oldal{
+        margin:18px auto 30px;
+    }
+
+    .tavollet-kartya{
+        padding:24px 18px 22px;
+    }
+
+    .cim-resz{
+        margin-bottom:34px;
+    }
+
+    .cim-resz h1{
+        font-size:30px;
+    }
+
+    .arany-vonal{
+        width:44px;
+        margin:18px auto 18px;
+    }
+
+    .cim-resz p{
+        font-size:11px;
+        line-height:1.5;
+    }
+
+    .mezo-csoport{
+        margin-bottom:30px;
+    }
+
+    .mezo-csoport h2,
+    .uzenet-fejlec h2{
+        font-size:17px;
+        letter-spacing:1.3px;
+    }
+
+    .ok-valaszto{
+        min-height:60px;
+        padding:0 14px;
+        gap:12px;
+    }
+
+    .ok-valaszto i{
+        width:42px;
+        height:42px;
+        flex-basis:42px;
+        font-size:19px;
+    }
+
+    .ok-valaszto > span:last-child{
+        font-size:15px;
+    }
+
+    .datumok{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .datum-mezo input{
+        height:54px;
+        font-size:14px;
+    }
+
+    #tavolletUzenet{
+        min-height:150px;
+        padding:15px;
+        font-size:14px;
+    }
+
+    .mentes-kuldes-gomb{
+        min-height:58px;
+        font-size:16px;
+    }
+
+    .push-szamlalo{
+        font-size:12px;
+    }
+
+    .felvitt-resz{
+        margin-top:36px;
+    }
+
+    .felvitt-resz > h2{
+        font-size:19px;
+    }
+}
+
+/* =========================
+   KIS TELEFON
+========================= */
+
+@media (max-width:360px){
+
+    .tavollet-oldal{
+        width:calc(100% - 18px);
+        max-width:calc(100% - 18px);
+    }
+
+    .tavollet-kartya{
+        padding:20px 14px;
+    }
+
+    .cim-resz h1{
+        font-size:26px;
+    }
+
+    .mezo-csoport h2,
+    .uzenet-fejlec h2{
+        font-size:15px;
+    }
+
+    .mentes-kuldes-gomb{
+        font-size:15px;
+    }
+}

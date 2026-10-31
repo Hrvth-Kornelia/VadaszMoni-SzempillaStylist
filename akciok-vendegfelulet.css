@@ -1,0 +1,702 @@
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+:root{
+    --header-background:#2e2e2e;
+    --header-background-end:#151515;
+    --page-background:#f8f4ef;
+    --page-background-soft:#fffdf9;
+    --body-text:#332d29;
+    --paper:#f8f4ef;
+    --paper-strong:#fffdf9;
+    --ink:#332d29;
+    --taupe:#a98d78;
+    --champagne:#c8aa8e;
+    --white:#fffdf9;
+    --header-height:88px;
+    --header-text:#f7f4f2;
+    --header-border:#f1e9c4;
+    --gold:#bc8f5d;
+    --gold-dark:#9a6f43;
+    --gold-light:#ead5b8;
+    --border:#e5ddd5;
+    --muted:#918a84;
+}
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    overflow-x:hidden;
+}
+
+body{
+    min-width:300px;
+    min-height:100vh;
+    background:
+    linear-gradient(
+    180deg,
+    var(--page-background) 0%,
+    var(--page-background-soft) 100%
+    );
+    color:var(--body-text);
+    font-family:"Montserrat",Arial,sans-serif;
+    font-weight:300;
+}
+
+[hidden]{
+    display:none !important;
+}
+
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button{
+    font:inherit;
+}
+
+/* =========================
+   FEJLÉC
+========================= */
+
+.luxoria-header{
+    position:relative;
+    z-index:50;
+    width:100%;
+    min-height:var(--header-height);
+    padding:10px 16px;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(
+    100deg,
+    var(--header-background) 0%,
+    var(--header-background-end) 100%
+    );
+    border-bottom:1px solid rgba(230,195,168,.18);
+    box-shadow:0 8px 22px rgba(46,27,20,.10);
+}
+
+.home-button{
+    min-height:42px;
+    margin-left:10px;
+    padding:0 18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    border:1px solid var(--header-border);
+    border-radius:999px;
+    color:var(--header-text);
+    background:rgba(255,255,255,.01);
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:14px;
+    font-weight:400;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:
+    color .25s ease,
+    border-color .25s ease,
+    background-color .25s ease,
+    transform .25s ease;
+}
+
+.home-button i{
+    font-size:21px;
+    line-height:1;
+}
+
+.home-button:hover{
+    color:#fff5ed;
+    border-color:#dfaa84;
+    background:rgba(255,255,255,.05);
+    transform:translateY(-1px);
+}
+
+.home-button:active{
+    transform:translateY(0);
+}
+
+.bejelentkezes{
+    width:44px;
+    height:44px;
+    border:1.3px solid #f1e9c4;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    background:transparent;
+    margin-left:auto;
+    transition:
+    background-color .25s ease,
+    transform .25s ease;
+}
+
+.bejelentkezes .bi-person{
+    font-size:21px;
+    color:#f1e9c4;
+    transition:color .25s ease;
+}
+
+.bejelentkezes:hover{
+    background-color:#d8c48f;
+    transform:translateY(-1px);
+}
+
+.bejelentkezes:hover .bi-person{
+    color:#1d1d1d;
+}
+
+/* =========================
+   OLDAL
+========================= */
+
+.akcio-oldal{
+    width:100%;
+    max-width:820px;
+    margin:0 auto;
+    padding:50px 28px 70px;
+}
+
+/* =========================
+   CÍM
+========================= */
+
+.akcio-cim-resz{
+    margin-bottom:36px;
+}
+
+.kis-cim{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:14px;
+    color:#6d6863;
+    font-size:13px;
+    font-weight:400;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+.kis-cim span{
+    width:3px;
+    height:30px;
+    background:var(--champagne);
+    border-radius:2px;
+}
+
+.akcio-cim-resz h1{
+    margin:0;
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:46px;
+    line-height:.98;
+    font-weight:400;
+    text-transform:uppercase;
+    color:#181614;
+}
+
+.arany-vonal{
+    width:44px;
+    height:1px;
+    margin:20px 0 17px;
+    background:var(--champagne);
+}
+
+.akcio-cim-resz p{
+    max-width:500px;
+    margin:0;
+    color:#8f8983;
+    font-size:15px;
+    line-height:1.6;
+    font-weight:300;
+}
+
+/* =========================
+   AKCIÓ LISTA
+========================= */
+
+.akcio-lista{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+/* =========================
+   AKCIÓ KÁRTYA
+========================= */
+
+.akcio-kartya{
+    position:relative;
+    width:100%;
+    padding:12px 12px 17px;
+    background:rgba(255,253,249,.98);
+    border:1px solid var(--border);
+    border-radius:25px;
+    box-shadow:0 12px 30px rgba(29,25,21,.05);
+    overflow:hidden;
+}
+
+/* =========================
+   KÉP
+========================= */
+
+.akcio-kep-resz{
+    position:relative;
+    width:100%;
+    height:285px;
+    overflow:hidden;
+    border-radius:19px;
+    background:#eee8e0;
+}
+
+.akcio-kep-resz img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+}
+
+/* =========================
+   KEDVEZMÉNY BADGE
+========================= */
+
+.akcio-badge{
+    position:absolute;
+    top:18px;
+    right:18px;
+    min-width:112px;
+    padding:12px 16px;
+    text-align:center;
+    border-radius:17px;
+    color:#fffaf3;
+    background:
+    linear-gradient(
+    135deg,
+    #c2925c 0%,
+    #9f7447 100%
+    );
+    box-shadow:0 8px 20px rgba(64,41,21,.13);
+}
+
+.akcio-badge strong{
+    display:block;
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:28px;
+    font-weight:400;
+    line-height:1;
+}
+
+.akcio-badge span{
+    display:block;
+    margin-top:6px;
+    font-size:9px;
+    letter-spacing:3.5px;
+    text-transform:uppercase;
+    opacity:.85;
+}
+
+/* =========================
+   TARTALOM
+========================= */
+
+.akcio-tartalom{
+    padding:23px 18px 2px;
+}
+
+.akcio-kategoria{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin-bottom:11px;
+    color:#75706b;
+    font-size:10px;
+    letter-spacing:2.8px;
+    text-transform:uppercase;
+}
+
+.akcio-kategoria::before{
+    content:"";
+    width:30px;
+    height:1px;
+    background:var(--champagne);
+}
+
+.akcio-nev{
+    margin:0;
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:34px;
+    line-height:1.05;
+    font-weight:400;
+    color:#181614;
+}
+
+.akcio-leiras{
+    max-width:580px;
+    margin:9px 0 20px;
+    color:#89837d;
+    font-size:14px;
+    line-height:1.55;
+}
+
+/* =========================
+   ÁRAK
+========================= */
+
+.akcio-arak{
+    margin-bottom:22px;
+}
+
+.eredeti-ar{
+    margin-bottom:4px;
+    color:#97918b;
+    font-size:17px;
+    text-decoration:line-through;
+}
+.akcios-ar{
+    font-family:"Bodoni Moda",Georgia,serif;
+    color:var(--gold-dark);
+    font-size:32px;
+    line-height:1;
+    font-weight:300;
+}
+
+/* =========================
+   GOMBOK
+========================= */
+
+.akcio-gombok{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.ajanlas-gomb{
+    min-height:58px;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:15px;
+    border:1px solid var(--champagne);
+    border-radius:999px;
+    background:
+        linear-gradient(
+            100deg,
+            #242424 0%,
+            #171717 100%
+        );
+    color:#faf6ef;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:400;
+    letter-spacing:2.6px;
+    text-transform:uppercase;
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+.ajanlas-gomb i{
+    color:var(--champagne);
+    font-size:19px;
+}
+
+.ajanlas-gomb:hover{
+    box-shadow:0 7px 18px rgba(0,0,0,.10);
+}
+
+.ajanlas-gomb:active{
+    transform:scale(.985);
+}
+
+
+
+/* =========================
+   ÜRES ÁLLAPOT
+========================= */
+
+.ures-allapot{
+    width:100%;
+    margin-top:8px;
+    padding:44px 20px;
+    text-align:center;
+    background:rgba(255,253,249,.94);
+    border:1px solid var(--border);
+    border-radius:24px;
+    box-shadow:0 10px 28px rgba(0,0,0,.035);
+}
+
+.ures-ikon{
+    width:62px;
+    height:62px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--gold-light);
+    border-radius:50%;
+    color:var(--champagne);
+    font-size:25px;
+}
+
+.ures-allapot h2{
+    margin:0;
+    font-family:"Bodoni Moda",Georgia,serif;
+    font-size:26px;
+    font-weight:400;
+    color:#332d29;
+}
+
+.ures-allapot p{
+    max-width:420px;
+    margin:9px auto 0;
+    color:#99938d;
+    font-size:13px;
+    line-height:1.55;
+}
+
+/* =========================
+   KÖZEPES NÉZET
+========================= */
+
+@media (max-width:700px){
+
+    .luxoria-header{
+        min-height:82px;
+        padding:10px 14px;
+    }
+    .home-button{
+        min-height:41px;
+        margin-left:4px;
+        padding:0 16px;
+        font-size:12px;
+    }
+    .home-button i{
+        font-size:19px;
+    }
+    .bejelentkezes{
+        width:42px;
+        height:42px;
+    }
+    .akcio-oldal{
+        max-width:620px;
+        padding:42px 22px 60px;
+    }
+    .akcio-cim-resz{
+        margin-bottom:30px;
+    }
+    .akcio-cim-resz h1{
+        font-size:39px;
+    }
+    .akcio-kep-resz{
+        height:255px;
+    }
+    .akcio-nev{
+        font-size:31px;
+    }
+    .akcios-ar{
+        font-size:30px;
+    }
+}
+
+/* =========================
+   TELEFON
+========================= */
+
+@media (max-width:500px){
+
+    .akcio-oldal{
+        width:100%;
+        padding:38px 16px 55px;
+    }
+    .kis-cim{
+        font-size:11px;
+        letter-spacing:4px;
+    }
+    .kis-cim span{
+        height:26px;
+    }
+    .akcio-cim-resz h1{
+        font-size:35px;
+    }
+    .akcio-cim-resz p{
+        font-size:13px;
+    }
+    .akcio-lista{
+        gap:21px;
+    }
+    .akcio-kartya{
+        padding:10px 10px 15px;
+        border-radius:22px;
+    }
+    .akcio-kep-resz{
+        height:225px;
+        border-radius:17px;
+    }
+    .akcio-badge{
+        top:14px;
+        right:14px;
+        min-width:100px;
+        padding:10px 12px;
+        border-radius:14px;
+    }
+    .akcio-badge strong{
+        font-size:26px;
+    }
+    .akcio-badge span{
+        font-size:8px;
+        letter-spacing:3px;
+    }
+    .akcio-tartalom{
+        padding:20px 12px 2px;
+    }
+    .akcio-kategoria{
+        font-size:10px;
+        letter-spacing:2.4px;
+    }
+    .akcio-kategoria::before{
+        width:27px;
+    }
+    .akcio-nev{
+        font-size:27px;
+    }
+    .akcio-leiras{
+        margin:9px 0 18px;
+        font-size:13px;
+    }
+    .eredeti-ar{
+        font-size:16px;
+    }
+    .akcios-ar{
+        font-size:28px;
+    }
+    .ajanlas-gomb{
+        min-height:55px;
+        padding:0 13px;
+        gap:9px;
+        font-size:10px;
+        letter-spacing:1.9px;
+    }
+    .kedvenc-gomb{
+        width:55px;
+        height:55px;
+        flex-basis:55px;
+        font-size:20px;
+    }
+    .ures-allapot{
+        padding:40px 17px;
+    }
+    .ures-allapot h2{
+        font-size:24px;
+    }
+}
+
+/* =========================
+   KIS TELEFON
+========================= */
+
+@media (max-width:350px){
+
+    .luxoria-header{
+        min-height:76px;
+        padding:9px 10px;
+    }
+    .home-button{
+        min-height:39px;
+        margin-left:0;
+        padding:0 13px;
+        font-size:11px;
+    }
+    .home-button i{
+        font-size:17px;
+    }
+    .bejelentkezes{
+        width:39px;
+        height:39px;
+    }
+    .bejelentkezes .bi-person{
+        font-size:18px;
+    }
+    .akcio-oldal{
+        padding:32px 11px 45px;
+    }
+    .akcio-cim-resz h1{
+        font-size:30px;
+    }
+    .akcio-cim-resz p{
+        font-size:12px;
+    }
+    .akcio-kartya{
+        padding:8px 8px 13px;
+        border-radius:20px;
+    }
+    .akcio-kep-resz{
+        height:195px;
+    }
+    .akcio-badge{
+        top:10px;
+        right:10px;
+        min-width:90px;
+        padding:8px 9px;
+    }
+    .akcio-badge strong{
+        font-size:23px;
+    }
+    .akcio-badge span{
+        font-size:7px;
+        letter-spacing:2.3px;
+    }
+    .akcio-tartalom{
+        padding:17px 9px 2px;
+    }
+    .akcio-nev{
+        font-size:24px;
+    }
+    .akcio-leiras{
+        font-size:12px;
+    }
+    .eredeti-ar{
+        font-size:15px;
+    }
+    .akcios-ar{
+        font-size:26px;
+    }
+    .akcio-gombok{
+        gap:8px;
+    }
+    .ajanlas-gomb{
+        min-height:52px;
+        padding:0 9px;
+        font-size:9px;
+        letter-spacing:1.25px;
+    }
+    .kedvenc-gomb{
+        width:52px;
+        height:52px;
+        flex-basis:52px;
+        font-size:19px;
+    }
+    .ures-allapot{
+        padding:35px 14px;
+    }
+    .ures-ikon{
+        width:58px;
+        height:58px;
+        font-size:23px;
+    }
+    .ures-allapot h2{
+        font-size:22px;
+    }
+    .ures-allapot p{
+        font-size:12px;
+    }
+}

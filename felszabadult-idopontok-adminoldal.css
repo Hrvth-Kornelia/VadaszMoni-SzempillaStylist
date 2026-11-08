@@ -1,0 +1,812 @@
+*,
+*::before,
+*::after{
+box-sizing:border-box;
+}
+
+:root{
+--header-bg:#181818;
+--header-bg-end:#101010;
+--header-text:#fffaf3;
+--header-border:#eadfc9;
+--cream:#f8f4ee;
+--cream-soft:#fffaf4;
+--paper:#fffdf9;
+--text:#25211f;
+--muted:#a39b93;
+--gold:#c8b284;
+--gold-light:#e9dfbf;
+--gold-soft:#e7e1c5;
+--gold-deep:#9f895f;
+--border:#e4d9cd;
+}
+
+html,
+body{
+width:100%;
+max-width:100%;
+margin:0;
+padding:0;
+overflow-x:hidden;
+}
+
+html{
+background:#f8f4ee;
+scroll-behavior:auto;
+overscroll-behavior-y:none;
+}
+
+body{
+min-width:0;
+min-height:100vh;
+min-height:100dvh;
+background:linear-gradient(180deg,#faf6f0 0%,#fffaf5 100%);
+color:var(--text);
+font-family:"Montserrat",Arial,sans-serif;
+overscroll-behavior-y:none;
+}
+
+img,
+svg,
+input,
+button,
+section,
+div,
+main,
+header{
+max-width:100%;
+}
+
+button,
+input{
+font:inherit;
+}
+
+.luxoria-header{
+position:relative;
+z-index:50;
+width:100%;
+max-width:100%;
+min-height:calc(82px + env(safe-area-inset-top));
+padding:calc(10px + env(safe-area-inset-top)) 24px 10px;
+display:flex;
+align-items:center;
+background:linear-gradient(105deg,var(--header-bg) 0%,var(--header-bg-end) 100%);
+border-bottom:1px solid rgba(200,178,132,.22);
+box-shadow:0 7px 22px rgba(0,0,0,.08);
+}
+
+.home-button{
+min-height:46px;
+padding:0 20px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+border:1px solid var(--header-border);
+border-radius:999px;
+background:transparent;
+color:var(--header-text);
+text-decoration:none;
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:14px;
+font-weight:400;
+letter-spacing:.12em;
+text-transform:uppercase;
+transition:.2s ease;
+}
+
+.home-button i{
+font-size:18px;
+color:#efe3cc;
+}
+
+.home-button:hover{
+color:var(--header-text);
+background:rgba(255,255,255,.035);
+border-color:#f4e6ca;
+}
+
+.home-button:active{
+transform:scale(.98);
+}
+
+.admin-oldal{
+position:relative;
+width:88%;
+max-width:700px;
+margin:48px auto 44px;
+text-align:left;
+}
+
+.admin-jelzes{
+position:relative;
+margin-bottom:20px;
+padding-left:24px;
+color:#a49b94;
+font-size:11px;
+font-weight:400;
+letter-spacing:.31em;
+}
+
+.admin-jelzes::before{
+content:"";
+position:absolute;
+left:0;
+top:50%;
+width:4px;
+height:27px;
+border-radius:10px;
+transform:translateY(-50%);
+background:var(--gold);
+}
+
+.admin-oldal h1{
+max-width:620px;
+margin:0;
+color:#171717;
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:38px;
+font-weight:400;
+line-height:1.05;
+letter-spacing:.01em;
+text-transform:uppercase;
+}
+
+.arany-vonal{
+width:56px;
+height:2px;
+margin:23px 0 20px;
+background:var(--gold);
+}
+
+.admin-alcim{
+max-width:520px;
+margin:0 0 34px;
+color:#99918a;
+font-size:15px;
+font-weight:300;
+line-height:1.5;
+white-space:normal;
+}
+
+.admin-kartya{
+position:relative;
+width:100%;
+max-width:100%;
+margin:0 0 40px;
+padding:78px 30px 30px;
+background:rgba(255,253,249,.96);
+border:1px solid #e6dbcf;
+border-radius:28px;
+box-shadow:0 10px 28px rgba(70,50,30,.05);
+overflow:hidden;
+}
+
+.uj-idopont-cimke{
+position:absolute;
+top:24px;
+left:30px;
+min-height:38px;
+padding:0 19px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:999px;
+background:linear-gradient(110deg,#eee8cf 0%,#ddd7b7 100%);
+color:#35312d;
+font-size:10px;
+font-weight:500;
+letter-spacing:.22em;
+text-transform:uppercase;
+}
+
+.idopont-mezok{
+width:100%;
+max-width:100%;
+display:grid;
+grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+gap:18px;
+}
+
+.mezo-blokk{
+min-width:0;
+width:100%;
+}
+
+.mezo-blokk label{
+display:block;
+margin:0 0 10px;
+color:#292522;
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:15px;
+font-weight:500;
+letter-spacing:.11em;
+text-transform:uppercase;
+}
+
+.input-keret{
+position:relative;
+width:100%;
+max-width:100%;
+height:58px;
+display:flex;
+align-items:center;
+border:1px solid #ded1c4;
+border-radius:18px;
+background:#fffdf9;
+overflow:hidden;
+}
+
+.input-keret>i{
+position:absolute;
+z-index:2;
+left:19px;
+font-size:24px;
+color:var(--gold);
+}
+
+.input-keret input{
+width:100%;
+max-width:100%;
+height:100%;
+margin:0;
+padding:0 16px 0 57px;
+border:0;
+outline:0;
+background:transparent;
+color:#4d4742;
+font-size:14px;
+appearance:none;
+-webkit-appearance:none;
+}
+
+.input-keret:focus-within{
+border-color:var(--gold);
+box-shadow:0 0 0 2px rgba(200,178,132,.10);
+}
+
+.input-keret input::-webkit-date-and-time-value{
+text-align:left;
+}
+
+.input-keret input::-webkit-calendar-picker-indicator{
+position:absolute;
+right:14px;
+opacity:.18;
+cursor:pointer;
+}
+
+#hozzaad,
+#kuldes{
+width:100%;
+max-width:100%;
+min-height:56px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+border:1px solid #c7a66f;
+border-radius:999px;
+background:linear-gradient(100deg,#1b1b1b 0%,#272727 100%);
+color:#f3efe9;
+font-family:"Montserrat",Arial,sans-serif;
+font-size:13px;
+font-weight:400;
+letter-spacing:.15em;
+text-transform:uppercase;
+cursor:pointer;
+transition:transform .2s ease,background .2s ease;
+}
+
+#hozzaad{
+margin-top:30px;
+}
+
+#hozzaad i,
+#kuldes i{
+font-size:19px;
+color:var(--gold);
+}
+
+#hozzaad:hover,
+#kuldes:hover{
+background:linear-gradient(100deg,#151515,#242424);
+}
+
+#hozzaad:active,
+#kuldes:active{
+transform:scale(.99);
+}
+
+#hozzaad:disabled,
+#kuldes:disabled{
+opacity:.5;
+cursor:default;
+}
+
+.kivalasztott-resz{
+width:100%;
+max-width:100%;
+}
+
+.kivalasztott-resz h2,
+.admin-lista h2{
+position:relative;
+margin:0 0 23px;
+padding-left:26px;
+color:#1e1c1a;
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:30px;
+font-weight:400;
+}
+
+.kivalasztott-resz h2::before,
+.admin-lista h2::before{
+content:"";
+position:absolute;
+left:0;
+top:50%;
+width:4px;
+height:36px;
+border-radius:5px;
+background:var(--gold);
+transform:translateY(-50%);
+}
+
+#kivalasztottLista,
+#adminIdopontLista{
+width:100%;
+max-width:100%;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.ures-kivalasztott,
+.ures-lista{
+width:100%;
+max-width:100%;
+min-height:112px;
+padding:20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:10px;
+background:rgba(255,253,249,.54);
+border:1px dashed #d8caba;
+border-radius:23px;
+color:#9e958d;
+text-align:center;
+}
+
+.ures-kivalasztott i{
+font-size:28px;
+color:var(--gold);
+}
+
+.ures-kivalasztott span,
+.ures-lista{
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:18px;
+font-style:italic;
+}
+
+.kivalasztott-sor,
+.idopont-sor{
+width:100%;
+max-width:100%;
+min-width:0;
+min-height:58px;
+padding:13px 16px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:13px;
+background:#fffdf9;
+border:1px solid var(--border);
+border-radius:16px;
+}
+
+.kivalasztott-adat,
+.idopont-sor div{
+min-width:0;
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+gap:11px;
+}
+
+.kivalasztott-adat strong,
+.idopont-sor strong{
+color:#2e2925;
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:16px;
+font-weight:500;
+}
+
+.kivalasztott-adat span,
+.idopont-sor span{
+color:var(--gold-deep);
+font-family:"Bodoni Moda",Georgia,serif;
+font-size:16px;
+}
+
+.kivalasztott-torles,
+.torles-gomb{
+flex:0 0 auto;
+width:32px!important;
+height:32px!important;
+padding:0!important;
+display:flex;
+align-items:center;
+justify-content:center;
+border:0!important;
+border-radius:50%!important;
+background:#eee5d5!important;
+color:#9b8767!important;
+font-size:19px!important;
+line-height:1;
+cursor:pointer;
+}
+
+.kivalasztott-torles:hover,
+.torles-gomb:hover{
+background:#e7dac7!important;
+color:#806b4c!important;
+}
+
+#kuldes{
+margin-top:29px;
+}
+
+.push-szamlalo-resz{
+width:100%;
+margin-top:26px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:17px;
+}
+
+.push-vonal{
+flex:1;
+height:1px;
+background:#e0d4c4;
+}
+
+#pushUsage{
+position:relative;
+flex:0 0 auto;
+margin:0;
+padding-left:23px;
+color:#8f867e;
+font-size:13px;
+font-weight:300;
+text-align:center;
+}
+
+#pushUsage::before{
+content:"✦";
+position:absolute;
+left:0;
+top:50%;
+transform:translateY(-50%);
+color:var(--gold);
+font-size:17px;
+}
+
+.admin-lista{
+width:100%;
+max-width:100%;
+margin-top:48px;
+text-align:left;
+}
+
+.lotusz{
+margin-top:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+color:var(--gold);
+}
+
+.lotusz span{
+width:60px;
+height:1px;
+background:#d9cdbd;
+}
+
+.lotusz div{
+font-size:21px;
+}
+
+@media(max-width:600px){
+
+.luxoria-header{
+width:100%;
+max-width:100%;
+min-height:calc(72px + env(safe-area-inset-top));
+padding:calc(8px + env(safe-area-inset-top)) 15px 8px;
+}
+
+.home-button{
+min-height:39px;
+padding:0 14px;
+font-size:10.5px;
+gap:7px;
+}
+
+.home-button i{
+font-size:15px;
+}
+
+.admin-oldal{
+width:calc(100% - 28px);
+max-width:calc(100% - 28px);
+margin:27px auto 24px;
+}
+
+.admin-jelzes{
+margin-bottom:16px;
+padding-left:18px;
+font-size:8px;
+letter-spacing:.28em;
+}
+
+.admin-jelzes::before{
+width:3px;
+height:22px;
+}
+
+.admin-oldal h1{
+max-width:265px;
+font-size:32px;
+line-height:1.02;
+letter-spacing:.005em;
+}
+
+.arany-vonal{
+width:42px;
+height:1px;
+margin:17px 0 14px;
+}
+
+.admin-alcim{
+max-width:285px;
+margin-bottom:21px;
+font-size:12px;
+line-height:1.55;
+white-space:normal;
+}
+
+.admin-kartya{
+width:100%;
+max-width:100%;
+margin-bottom:27px;
+padding:56px 14px 15px;
+border-radius:19px;
+}
+
+.uj-idopont-cimke{
+top:14px;
+left:15px;
+min-height:30px;
+padding:0 12px;
+font-size:7px;
+}
+
+.idopont-mezok{
+width:100%;
+max-width:100%;
+grid-template-columns:1fr;
+gap:13px;
+}
+
+.mezo-blokk,
+.input-keret{
+width:100%;
+max-width:100%;
+min-width:0;
+}
+
+.mezo-blokk label{
+margin-bottom:6px;
+font-size:11.5px;
+letter-spacing:.1em;
+}
+
+.input-keret{
+height:45px;
+border-radius:13px;
+}
+
+.input-keret>i{
+left:14px;
+font-size:19px;
+}
+
+.input-keret input{
+width:100%;
+max-width:100%;
+padding:0 11px 0 43px;
+font-size:11.5px;
+}
+
+#hozzaad,
+#kuldes{
+width:100%;
+max-width:100%;
+min-height:44px;
+font-size:9.5px;
+letter-spacing:.13em;
+gap:8px;
+}
+
+#hozzaad{
+margin-top:17px;
+}
+
+#hozzaad i,
+#kuldes i{
+font-size:15px;
+}
+
+.kivalasztott-resz,
+.admin-lista,
+#kivalasztottLista,
+#adminIdopontLista{
+width:100%;
+max-width:100%;
+}
+
+.kivalasztott-resz h2,
+.admin-lista h2{
+margin-bottom:15px;
+padding-left:18px;
+font-size:23px;
+}
+
+.kivalasztott-resz h2::before,
+.admin-lista h2::before{
+width:3px;
+height:28px;
+}
+
+.ures-kivalasztott,
+.ures-lista{
+min-height:82px;
+padding:13px;
+border-radius:16px;
+}
+
+.ures-kivalasztott i{
+font-size:22px;
+}
+
+.ures-kivalasztott span,
+.ures-lista{
+font-size:14px;
+}
+
+#kuldes{
+margin-top:17px;
+}
+
+.push-szamlalo-resz{
+margin-top:16px;
+gap:8px;
+}
+
+#pushUsage{
+padding-left:16px;
+font-size:9.5px;
+}
+
+#pushUsage::before{
+font-size:12px;
+}
+
+.admin-lista{
+margin-top:27px;
+}
+
+.kivalasztott-sor,
+.idopont-sor{
+min-height:46px;
+padding:8px 10px;
+border-radius:12px;
+}
+
+.kivalasztott-adat,
+.idopont-sor div{
+gap:7px;
+}
+
+.kivalasztott-adat strong,
+.kivalasztott-adat span,
+.idopont-sor strong,
+.idopont-sor span{
+font-size:11.5px;
+}
+
+.kivalasztott-torles,
+.torles-gomb{
+width:26px!important;
+height:26px!important;
+font-size:15px!important;
+}
+
+.lotusz{
+margin-top:26px;
+}
+
+}
+
+@media(max-width:360px){
+
+.admin-oldal{
+width:calc(100% - 22px);
+max-width:calc(100% - 22px);
+margin-top:23px;
+}
+
+.admin-oldal h1{
+max-width:230px;
+font-size:29px;
+line-height:1.02;
+}
+
+.admin-alcim{
+max-width:250px;
+font-size:11px;
+}
+
+.admin-kartya{
+padding:53px 12px 14px;
+}
+
+.uj-idopont-cimke{
+left:13px;
+}
+
+.mezo-blokk label{
+font-size:10.5px;
+}
+
+.input-keret{
+height:43px;
+}
+
+.input-keret>i{
+font-size:18px;
+}
+
+#hozzaad,
+#kuldes{
+min-height:42px;
+font-size:9px;
+}
+
+.kivalasztott-resz h2,
+.admin-lista h2{
+font-size:21px;
+}
+
+.ures-kivalasztott,
+.ures-lista{
+min-height:76px;
+}
+
+.ures-kivalasztott span,
+.ures-lista{
+font-size:13px;
+}
+
+#pushUsage{
+font-size:9px;
+}
+
+}

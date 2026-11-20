@@ -1,7 +1,16 @@
+/* ========================================
+   ALAP BEÁLLÍTÁSOK
+======================================== */
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+}
+
+html{
+  width:100%;
+  overflow-x:hidden;
 }
 
 :root{
@@ -14,7 +23,9 @@
 }
 
 body{
+  width:100%;
   min-height:100vh;
+  overflow-x:hidden;
   background:var(--cream);
   color:var(--black);
   font-family:"Montserrat",sans-serif;
@@ -31,6 +42,7 @@ input{
 ======================================== */
 
 .luxoria-header{
+  width:100%;
   height:90px;
   padding:18px 24px;
   background:var(--black);
@@ -63,6 +75,7 @@ input{
 .profile-button{
   width:44px;
   height:44px;
+  flex-shrink:0;
   border:1px solid var(--gold-light);
   border-radius:50%;
   background:transparent;
@@ -92,21 +105,23 @@ input{
 ======================================== */
 
 .appointment-page{
-  padding:45px 24px;
+  width:100%;
+  padding:50px 24px 45px;
 }
 
 .appointment-section{
   width:100%;
-  max-width:560px;
-  margin:auto;
+  max-width:540px;
+  margin:0 auto;
 }
 
 
 /* ========================================
-   CÍM
+   FŐCÍM
 ======================================== */
 
 .section-heading{
+  width:100%;
   margin-bottom:38px;
   text-align:center;
 }
@@ -129,6 +144,7 @@ input{
 .section-heading p{
   color:var(--muted);
   font-size:12px;
+  line-height:1.5;
   letter-spacing:1.3px;
 }
 
@@ -138,9 +154,15 @@ input{
 ======================================== */
 
 .appointment-form{
+  width:100%;
   display:flex;
   flex-direction:column;
   gap:22px;
+}
+
+.form-group{
+  width:100%;
+  min-width:0;
 }
 
 .form-group label{
@@ -158,7 +180,10 @@ input{
 }
 
 .form-group input{
+  display:block;
   width:100%;
+  max-width:100%;
+  min-width:0;
   height:58px;
   padding:0 18px;
   border:1px solid var(--border);
@@ -167,7 +192,7 @@ input{
   background:#fffdfa;
   color:var(--black);
   font-size:16px;
-  transition:.2s ease;
+  transition:border-color .2s ease,box-shadow .2s ease;
 }
 
 .form-group input:focus{
@@ -181,11 +206,28 @@ input{
 
 
 /* ========================================
+   DÁTUM ÉS IDŐ INPUT
+======================================== */
+
+.form-group input[type="date"],
+.form-group input[type="time"]{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  height:58px;
+  padding:0 18px;
+  background:#fffdfa;
+  color:var(--black);
+}
+
+
+/* ========================================
    RÖGZÍTÉS GOMB
 ======================================== */
 
 .save-button{
   width:100%;
+  max-width:100%;
   height:58px;
   margin-top:8px;
   border:0;
@@ -228,6 +270,8 @@ input{
 ======================================== */
 
 .info-box{
+  width:100%;
+  max-width:100%;
   margin-top:20px;
   padding:17px 19px;
   border:1px solid var(--border);
@@ -256,6 +300,8 @@ input{
 
 .message{
   display:none;
+  width:100%;
+  max-width:100%;
   margin-top:18px;
   padding:17px;
   border-radius:14px;
@@ -273,8 +319,9 @@ input{
 }
 
 .message-text{
-  display:flex;
+  min-width:0;
   flex:1;
+  display:flex;
   flex-direction:column;
   gap:3px;
 }
@@ -340,7 +387,8 @@ input{
 
 
 /* ========================================
-   MOBIL - MAXIMUM 380PX
+   KISEBB MOBIL
+   MAXIMUM 380PX
 ======================================== */
 
 @media(max-width:380px){
@@ -371,35 +419,54 @@ input{
     font-size:17px;
   }
 
+
+  /* CÍM LEJJEBB A FEJLÉCTŐL */
+
   .appointment-page{
-    padding:42px 16px 30px;
+    padding:58px 16px 32px;
+  }
+
+  .appointment-section{
+    width:100%;
+    max-width:100%;
   }
 
   .section-heading{
-    margin-bottom:24px;
+    margin-bottom:30px;
   }
 
   .section-heading h1{
     font-size:28px;
+    line-height:.98;
   }
 
   .gold-line{
     width:36px;
-    margin:13px auto;
+    margin:15px auto;
   }
 
   .section-heading p{
+    padding:0 5px;
     font-size:10px;
-    letter-spacing:1px;
     line-height:1.5;
+    letter-spacing:1px;
   }
 
+
+  /* ŰRLAP */
+
   .appointment-form{
-    gap:14px;
+    width:100%;
+    gap:16px;
+  }
+
+  .form-group{
+    width:100%;
+    min-width:0;
   }
 
   .form-group label{
-    margin-bottom:6px;
+    margin:0 0 6px 3px;
     font-size:15px;
   }
 
@@ -407,35 +474,50 @@ input{
     font-size:17px;
   }
 
-  .form-group input{
-    width:100%;
-    height:48px;
-    min-height:48px;
-    padding:0 15px;
-    border-radius:12px;
-    font-size:14px;
-    line-height:48px;
-  }
 
+  /* INPUTOK - NEM LÓGNAK KI */
+
+  .form-group input,
   .form-group input[type="date"],
   .form-group input[type="time"]{
     display:block;
     width:100%;
-    height:48px;
-    min-height:48px;
-    padding:0 15px;
-    line-height:48px;
+    max-width:100%;
+    min-width:0;
+    height:50px;
+    min-height:50px;
+    padding:0 14px;
+    margin:0;
+    border-radius:12px;
+    font-size:14px;
+  }
+
+  .form-group input[type="date"],
+  .form-group input[type="time"]{
+    -webkit-appearance:none;
+    appearance:none;
   }
 
   .form-group input[type="date"]::-webkit-date-and-time-value,
   .form-group input[type="time"]::-webkit-date-and-time-value{
+    min-height:0;
+    margin:0;
+    padding:0;
     text-align:left;
-    min-height:48px;
-    line-height:48px;
   }
 
+  .form-group input[type="date"]::-webkit-datetime-edit,
+  .form-group input[type="time"]::-webkit-datetime-edit{
+    margin:0;
+    padding:0;
+  }
+
+
+  /* GOMB */
+
   .save-button{
-    height:49px;
+    width:100%;
+    height:50px;
     margin-top:5px;
     border-radius:12px;
     font-size:14px;
@@ -445,7 +527,11 @@ input{
     font-size:18px;
   }
 
+
+  /* INFO */
+
   .info-box{
+    width:100%;
     margin-top:16px;
     padding:14px 16px;
     border-radius:12px;
@@ -458,6 +544,9 @@ input{
   .info-box p{
     font-size:13px;
   }
+
+
+  /* ÜZENETEK */
 
   .message{
     padding:14px;
@@ -472,7 +561,8 @@ input{
 
 
 /* ========================================
-   MOBIL - 381PX ÉS 500PX KÖZÖTT
+   NORMÁL MOBIL
+   381PX - 500PX
 ======================================== */
 
 @media(min-width:381px) and (max-width:500px){
@@ -503,35 +593,54 @@ input{
     font-size:18px;
   }
 
+
+  /* CÍM LEJJEBB A FEJLÉCTŐL */
+
   .appointment-page{
-    padding:48px 19px 35px;
+    padding:64px 19px 36px;
+  }
+
+  .appointment-section{
+    width:100%;
+    max-width:100%;
   }
 
   .section-heading{
-    margin-bottom:27px;
+    margin-bottom:32px;
   }
 
   .section-heading h1{
     font-size:31px;
+    line-height:.98;
   }
 
   .gold-line{
     width:40px;
-    margin:15px auto;
+    margin:16px auto;
   }
 
   .section-heading p{
+    padding:0 5px;
     font-size:10px;
-    letter-spacing:1.1px;
     line-height:1.5;
+    letter-spacing:1.1px;
   }
 
+
+  /* ŰRLAP */
+
   .appointment-form{
-    gap:14px;
+    width:100%;
+    gap:17px;
+  }
+
+  .form-group{
+    width:100%;
+    min-width:0;
   }
 
   .form-group label{
-    margin-bottom:7px;
+    margin:0 0 7px 3px;
     font-size:16px;
   }
 
@@ -539,34 +648,49 @@ input{
     font-size:18px;
   }
 
-  .form-group input{
-    width:100%;
-    height:51px;
-    min-height:51px;
-    padding:0 16px;
-    border-radius:13px;
-    font-size:15px;
-    line-height:51px;
-  }
 
+  /* INPUTOK - AZONOS MÉRET, NEM LÓGNAK KI */
+
+  .form-group input,
   .form-group input[type="date"],
   .form-group input[type="time"]{
     display:block;
     width:100%;
-    height:51px;
-    min-height:51px;
+    max-width:100%;
+    min-width:0;
+    height:52px;
+    min-height:52px;
     padding:0 16px;
-    line-height:51px;
+    margin:0;
+    border-radius:13px;
+    font-size:15px;
+  }
+
+  .form-group input[type="date"],
+  .form-group input[type="time"]{
+    -webkit-appearance:none;
+    appearance:none;
   }
 
   .form-group input[type="date"]::-webkit-date-and-time-value,
   .form-group input[type="time"]::-webkit-date-and-time-value{
+    min-height:0;
+    margin:0;
+    padding:0;
     text-align:left;
-    min-height:51px;
-    line-height:51px;
   }
 
+  .form-group input[type="date"]::-webkit-datetime-edit,
+  .form-group input[type="time"]::-webkit-datetime-edit{
+    margin:0;
+    padding:0;
+  }
+
+
+  /* GOMB */
+
   .save-button{
+    width:100%;
     height:52px;
     margin-top:6px;
     border-radius:13px;
@@ -577,7 +701,11 @@ input{
     font-size:19px;
   }
 
+
+  /* INFO */
+
   .info-box{
+    width:100%;
     margin-top:18px;
     padding:15px 17px;
     border-radius:13px;
@@ -586,6 +714,9 @@ input{
   .info-box p{
     font-size:13px;
   }
+
+
+  /* ÜZENETEK */
 
   .message{
     padding:15px;
@@ -600,7 +731,8 @@ input{
 
 
 /* ========================================
-   TABLET / ASZTALI - 501PX FELETT
+   TABLET / ASZTALI
+   501PX FELETT
 ======================================== */
 
 @media(min-width:501px){

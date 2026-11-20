@@ -1,0 +1,515 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --black:#202020;
+  --cream:#fbf7f1;
+  --gold:#bd9360;
+  --gold-light:#ded0b3;
+  --border:#e2d8cc;
+  --muted:#9d958c;
+}
+
+body{
+  min-height:100vh;
+  background:var(--cream);
+  color:var(--black);
+  font-family:"Montserrat",sans-serif;
+}
+
+button,input{
+  font:inherit;
+}
+
+.luxoria-header{
+  height:90px;
+  padding:18px 24px;
+  background:var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.home-button{
+  height:44px;
+  padding:0 18px;
+  border:1px solid var(--gold-light);
+  border-radius:30px;
+  background:transparent;
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-family:"Bodoni Moda",serif;
+  font-size:14px;
+  letter-spacing:2px;
+  transition:.25s ease;
+}
+
+.home-button i{
+  font-size:19px;
+}
+
+.profile-button{
+  width:44px;
+  height:44px;
+  border:1px solid var(--gold-light);
+  border-radius:50%;
+  background:transparent;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.profile-button i{
+  font-size:20px;
+}
+
+.home-button:hover,
+.profile-button:hover{
+  background:var(--gold-light);
+  border-color:var(--gold-light);
+  color:var(--black);
+  transform:translateY(-2px);
+}
+
+.appointment-page{
+  padding:45px 24px;
+}
+
+.appointment-section{
+  width:100%;
+  max-width:560px;
+  margin:auto;
+}
+
+.section-heading{
+  margin-bottom:38px;
+  text-align:center;
+}
+
+.section-heading h1{
+  font-family:"Bodoni Moda",serif;
+  font-size:38px;
+  font-weight:400;
+  line-height:.95;
+}
+
+.gold-line{
+  display:block;
+  width:45px;
+  height:1px;
+  margin:20px auto;
+  background:var(--gold);
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:1.3px;
+}
+
+.appointment-form{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.form-group label{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:0 0 8px 3px;
+  font-family:"Bodoni Moda",serif;
+  font-size:17px;
+}
+
+.form-group label i{
+  color:var(--gold);
+  font-size:20px;
+}
+
+.form-group input{
+  width:100%;
+  height:58px;
+  padding:0 18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  background:#fffdfa;
+  color:var(--black);
+  font-size:16px;
+  transition:.2s ease;
+}
+
+.form-group input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(189,147,96,.08);
+}
+
+.form-group input::placeholder{
+  color:#aaa39b;
+}
+
+.save-button{
+  width:100%;
+  height:58px;
+  margin-top:8px;
+  border:0;
+  border-radius:14px;
+  background:var(--black);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  cursor:pointer;
+  font-family:"Bodoni Moda",serif;
+  font-size:16px;
+  letter-spacing:1px;
+  transition:.2s ease;
+}
+
+.save-button i{
+  color:var(--gold-light);
+  font-size:20px;
+}
+
+.save-button:hover{
+  transform:translateY(-2px);
+}
+
+.save-button:active{
+  transform:none;
+}
+
+.save-button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none;
+}
+
+.info-box{
+  margin-top:20px;
+  padding:17px 19px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.info-box i{
+  flex-shrink:0;
+  color:var(--gold);
+  font-size:20px;
+}
+
+.info-box p{
+  font-family:"Bodoni Moda",serif;
+  font-size:14px;
+  line-height:1.4;
+}
+
+.message{
+  display:none;
+  margin-top:18px;
+  padding:17px;
+  border-radius:14px;
+  align-items:center;
+  gap:12px;
+}
+
+.message.visible{
+  display:flex;
+}
+
+.message>i{
+  flex-shrink:0;
+  font-size:23px;
+}
+
+.message-text{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  gap:3px;
+}
+
+.message strong{
+  font-family:"Bodoni Moda",serif;
+  font-size:16px;
+  font-weight:500;
+}
+
+.message span{
+  font-size:12px;
+  line-height:1.4;
+}
+
+.success-message{
+  background:#f2f6ed;
+  border:1px solid #cad8bf;
+}
+
+.success-message>i{
+  color:#638451;
+}
+
+.error-message{
+  background:#faf0ef;
+  border:1px solid #e1c6c2;
+}
+
+.error-message>i{
+  color:#9c5750;
+}
+
+.delete-appointment{
+  width:34px;
+  height:34px;
+  flex-shrink:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#73786f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.delete-appointment i{
+  font-size:17px;
+}
+
+.delete-appointment:hover{
+  background:#dfe8d8;
+  color:var(--black);
+  transform:rotate(90deg);
+}
+
+/* MAX 380PX */
+
+@media(max-width:380px){
+
+  .luxoria-header{
+    height:62px;
+    padding:10px 14px;
+  }
+
+  .home-button{
+    height:34px;
+    padding:0 12px;
+    gap:6px;
+    font-size:11px;
+    letter-spacing:1.5px;
+  }
+
+  .home-button i{
+    font-size:16px;
+  }
+
+  .profile-button{
+    width:34px;
+    height:34px;
+  }
+
+  .profile-button i{
+    font-size:17px;
+  }
+
+  .appointment-page{
+    padding:25px 16px 30px;
+  }
+
+  .section-heading{
+    margin-bottom:24px;
+  }
+
+  .section-heading h1{
+    font-size:28px;
+  }
+
+  .gold-line{
+    width:36px;
+    margin:13px auto;
+  }
+
+  .section-heading p{
+    font-size:10px;
+    letter-spacing:1px;
+    line-height:1.5;
+  }
+
+  .appointment-form{
+    gap:15px;
+  }
+
+  .form-group label{
+    margin-bottom:6px;
+    font-size:15px;
+  }
+
+  .form-group label i{
+    font-size:17px;
+  }
+
+  .form-group input{
+    height:48px;
+    padding:0 15px;
+    border-radius:12px;
+    font-size:14px;
+  }
+
+  .save-button{
+    height:49px;
+    margin-top:5px;
+    border-radius:12px;
+    font-size:14px;
+  }
+
+  .save-button i{
+    font-size:18px;
+  }
+
+  .info-box{
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:12px;
+  }
+
+  .info-box i{
+    font-size:18px;
+  }
+
+  .info-box p{
+    font-size:13px;
+  }
+
+  .message{
+    padding:14px;
+    border-radius:12px;
+  }
+
+  .delete-appointment{
+    width:30px;
+    height:30px;
+  }
+}
+
+/* 381PX - 500PX */
+
+@media(min-width:381px) and (max-width:500px){
+
+  .luxoria-header{
+    height:68px;
+    padding:12px 17px;
+  }
+
+  .home-button{
+    height:37px;
+    padding:0 14px;
+    gap:7px;
+    font-size:12px;
+    letter-spacing:1.6px;
+  }
+
+  .home-button i{
+    font-size:17px;
+  }
+
+  .profile-button{
+    width:37px;
+    height:37px;
+  }
+
+  .profile-button i{
+    font-size:18px;
+  }
+
+  .appointment-page{
+    padding:29px 19px 35px;
+  }
+
+  .section-heading{
+    margin-bottom:27px;
+  }
+
+  .section-heading h1{
+    font-size:31px;
+  }
+
+  .gold-line{
+    width:40px;
+    margin:15px auto;
+  }
+
+  .section-heading p{
+    font-size:10px;
+    letter-spacing:1.1px;
+    line-height:1.5;
+  }
+
+  .appointment-form{
+    gap:17px;
+  }
+
+  .form-group label{
+    margin-bottom:7px;
+    font-size:16px;
+  }
+
+  .form-group label i{
+    font-size:18px;
+  }
+
+  .form-group input{
+    height:51px;
+    padding:0 16px;
+    border-radius:13px;
+    font-size:15px;
+  }
+
+  .save-button{
+    height:52px;
+    margin-top:6px;
+    border-radius:13px;
+    font-size:15px;
+  }
+
+  .save-button i{
+    font-size:19px;
+  }
+
+  .info-box{
+    margin-top:18px;
+    padding:15px 17px;
+    border-radius:13px;
+  }
+
+  .info-box p{
+    font-size:13px;
+  }
+}
+
+/* 501PX FELETT */
+
+@media(min-width:501px){
+
+  .appointment-page{
+    padding-top:50px;
+  }
+
+  .appointment-section{
+    max-width:540px;
+  }
+}

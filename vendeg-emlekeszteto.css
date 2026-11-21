@@ -1,0 +1,863 @@
+/* ========================================
+   ALAP BEÁLLÍTÁSOK
+======================================== */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  width:100%;
+  overflow-x:hidden;
+}
+
+:root{
+  --black:#202020;
+  --cream:#fbf7f1;
+  --gold:#bd9360;
+  --gold-light:#ded0b3;
+  --border:#e2d8cc;
+  --muted:#9d958c;
+}
+
+body{
+  width:100%;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:var(--cream);
+  color:var(--black);
+  font-family:"Montserrat",sans-serif;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+
+/* ========================================
+   FEJLÉC
+======================================== */
+
+.luxoria-header{
+  width:100%;
+  height:90px;
+  padding:18px 24px;
+  background:var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.home-button{
+  height:44px;
+  padding:0 18px;
+  border:1px solid var(--gold-light);
+  border-radius:30px;
+  background:transparent;
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-family:"Bodoni Moda",serif;
+  font-size:14px;
+  letter-spacing:2px;
+  transition:.25s ease;
+}
+
+.home-button i{
+  font-size:19px;
+}
+
+.profile-button{
+  width:44px;
+  height:44px;
+  flex-shrink:0;
+  border:1px solid var(--gold-light);
+  border-radius:50%;
+  background:transparent;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.profile-button i{
+  font-size:20px;
+}
+
+.home-button:hover,
+.profile-button:hover{
+  background:var(--gold-light);
+  border-color:var(--gold-light);
+  color:var(--black);
+  transform:translateY(-2px);
+}
+
+
+/* ========================================
+   OLDAL
+======================================== */
+
+.appointment-page{
+  width:100%;
+  padding:50px 24px 45px;
+}
+
+.appointment-section{
+  width:100%;
+  max-width:540px;
+  margin:0 auto;
+}
+
+
+/* ========================================
+   FŐCÍM
+======================================== */
+
+.section-heading{
+  width:100%;
+  margin-bottom:38px;
+  text-align:center;
+}
+
+.section-heading h1{
+  font-family:"Bodoni Moda",serif;
+  font-size:38px;
+  font-weight:400;
+  line-height:.95;
+}
+
+.gold-line{
+  display:block;
+  width:45px;
+  height:1px;
+  margin:20px auto;
+  background:var(--gold);
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+  letter-spacing:1.3px;
+}
+
+
+/* ========================================
+   ŰRLAP
+======================================== */
+
+.appointment-form{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+
+.form-group{
+  width:100%;
+  min-width:0;
+}
+
+.form-group label{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:0 0 8px 3px;
+  font-family:"Bodoni Moda",serif;
+  font-size:17px;
+}
+
+.form-group label i{
+  color:var(--gold);
+  font-size:20px;
+}
+
+.form-group input{
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  height:58px;
+  padding:0 18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  background:#fffdfa;
+  color:var(--black);
+  font-size:16px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+
+.form-group input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(189,147,96,.08);
+}
+
+.form-group input::placeholder{
+  color:#aaa39b;
+}
+
+
+/* ========================================
+   DÁTUM ÉS IDŐ INPUT
+======================================== */
+
+.form-group input[type="date"],
+.form-group input[type="time"]{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  height:58px;
+  padding:0 18px;
+  background:#fffdfa;
+  color:var(--black);
+
+  text-align:center;
+  text-align-last:center;
+}
+
+
+/* ========================================
+   SAFARI / IOS DÁTUM ÉS IDŐ KÖZÉPRE
+======================================== */
+
+.form-group input[type="date"]::-webkit-date-and-time-value,
+.form-group input[type="time"]::-webkit-date-and-time-value{
+  width:100%;
+  min-height:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+
+.form-group input[type="date"]::-webkit-datetime-edit,
+.form-group input[type="time"]::-webkit-datetime-edit{
+  width:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+
+.form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+.form-group input[type="time"]::-webkit-datetime-edit-fields-wrapper{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* ========================================
+   RÖGZÍTÉS GOMB
+======================================== */
+
+.save-button{
+  width:100%;
+  max-width:100%;
+  height:58px;
+  margin-top:8px;
+  border:0;
+  border-radius:14px;
+  background:var(--black);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  cursor:pointer;
+  font-family:"Bodoni Moda",serif;
+  font-size:16px;
+  letter-spacing:1px;
+  transition:.2s ease;
+}
+
+.save-button i{
+  color:var(--gold-light);
+  font-size:20px;
+}
+
+.save-button:hover{
+  transform:translateY(-2px);
+}
+
+.save-button:active{
+  transform:none;
+}
+
+.save-button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none;
+}
+
+
+/* ========================================
+   INFORMÁCIÓS DOBOZ
+======================================== */
+
+.info-box{
+  width:100%;
+  max-width:100%;
+  margin-top:20px;
+  padding:17px 19px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.info-box i{
+  flex-shrink:0;
+  color:var(--gold);
+  font-size:20px;
+}
+
+.info-box p{
+  font-family:"Bodoni Moda",serif;
+  font-size:14px;
+  line-height:1.4;
+}
+
+
+/* ========================================
+   ÜZENETEK / RÖGZÍTETT IDŐPONTOK
+======================================== */
+
+.message{
+  display:none;
+  width:100%;
+  max-width:100%;
+  margin-top:18px;
+  padding:17px;
+  border-radius:14px;
+  align-items:center;
+  gap:12px;
+}
+
+.message.visible{
+  display:flex;
+}
+
+.message>i{
+  flex-shrink:0;
+  font-size:23px;
+}
+
+.message-text{
+  min-width:0;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.message strong{
+  font-family:"Bodoni Moda",serif;
+  font-size:16px;
+  font-weight:500;
+}
+
+.message span{
+  font-size:12px;
+  line-height:1.4;
+}
+
+.success-message{
+  background:#f2f6ed;
+  border:1px solid #cad8bf;
+}
+
+.success-message>i{
+  color:#638451;
+}
+
+.error-message{
+  background:#faf0ef;
+  border:1px solid #e1c6c2;
+}
+
+.error-message>i{
+  color:#9c5750;
+}
+
+
+/* ========================================
+   TÖBB RÖGZÍTETT IDŐPONT LISTÁJA
+======================================== */
+
+#savedAppointmentsList{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+#savedAppointmentsList .message{
+  width:100%;
+}
+
+
+/* ========================================
+   X TÖRLÉS GOMB
+======================================== */
+
+.delete-appointment{
+  width:34px;
+  height:34px;
+  flex-shrink:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#73786f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.delete-appointment i{
+  font-size:17px;
+}
+
+.delete-appointment:hover{
+  background:#dfe8d8;
+  color:var(--black);
+  transform:rotate(90deg);
+}
+
+
+/* ========================================
+   KISEBB MOBIL
+   MAXIMUM 380PX
+======================================== */
+
+@media(max-width:380px){
+
+  .luxoria-header{
+    height:62px;
+    padding:10px 14px;
+  }
+
+  .home-button{
+    height:34px;
+    padding:0 12px;
+    gap:6px;
+    font-size:11px;
+    letter-spacing:1.5px;
+  }
+
+  .home-button i{
+    font-size:16px;
+  }
+
+  .profile-button{
+    width:34px;
+    height:34px;
+  }
+
+  .profile-button i{
+    font-size:17px;
+  }
+
+
+  /* CÍM LEJJEBB A FEJLÉCTŐL */
+
+  .appointment-page{
+    padding:58px 16px 32px;
+  }
+
+  .appointment-section{
+    width:100%;
+    max-width:100%;
+  }
+
+  .section-heading{
+    margin-bottom:30px;
+  }
+
+  .section-heading h1{
+    font-size:28px;
+    line-height:.98;
+  }
+
+  .gold-line{
+    width:36px;
+    margin:15px auto;
+  }
+
+  .section-heading p{
+    padding:0 5px;
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:1px;
+  }
+
+
+  /* ŰRLAP */
+
+  .appointment-form{
+    width:100%;
+    gap:16px;
+  }
+
+  .form-group{
+    width:100%;
+    min-width:0;
+  }
+
+  .form-group label{
+    margin:0 0 6px 3px;
+    font-size:15px;
+  }
+
+  .form-group label i{
+    font-size:17px;
+  }
+
+
+  /* INPUTOK */
+
+  .form-group input,
+  .form-group input[type="date"],
+  .form-group input[type="time"]{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    height:50px;
+    min-height:50px;
+    padding:0 14px;
+    margin:0;
+    border-radius:12px;
+    font-size:14px;
+  }
+
+
+  /* DÁTUM ÉS IDŐ KÖZÉPRE */
+
+  .form-group input[type="date"],
+  .form-group input[type="time"]{
+    -webkit-appearance:none;
+    appearance:none;
+    text-align:center;
+    text-align-last:center;
+  }
+
+  .form-group input[type="date"]::-webkit-date-and-time-value,
+  .form-group input[type="time"]::-webkit-date-and-time-value{
+    width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+    text-align:center;
+  }
+
+  .form-group input[type="date"]::-webkit-datetime-edit,
+  .form-group input[type="time"]::-webkit-datetime-edit{
+    width:100%;
+    margin:0;
+    padding:0;
+    text-align:center;
+  }
+
+  .form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+  .form-group input[type="time"]::-webkit-datetime-edit-fields-wrapper{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+
+  /* GOMB */
+
+  .save-button{
+    width:100%;
+    height:50px;
+    margin-top:5px;
+    border-radius:12px;
+    font-size:14px;
+  }
+
+  .save-button i{
+    font-size:18px;
+  }
+
+
+  /* INFO */
+
+  .info-box{
+    width:100%;
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:12px;
+  }
+
+  .info-box i{
+    font-size:18px;
+  }
+
+  .info-box p{
+    font-size:13px;
+  }
+
+
+  /* ÜZENETEK */
+
+  .message{
+    padding:14px;
+    border-radius:12px;
+  }
+
+  .delete-appointment{
+    width:30px;
+    height:30px;
+  }
+}
+
+
+/* ========================================
+   NORMÁL MOBIL
+   381PX - 500PX
+======================================== */
+
+@media(min-width:381px) and (max-width:500px){
+
+  .luxoria-header{
+    height:68px;
+    padding:12px 17px;
+  }
+
+  .home-button{
+    height:37px;
+    padding:0 14px;
+    gap:7px;
+    font-size:12px;
+    letter-spacing:1.6px;
+  }
+
+  .home-button i{
+    font-size:17px;
+  }
+
+  .profile-button{
+    width:37px;
+    height:37px;
+  }
+
+  .profile-button i{
+    font-size:18px;
+  }
+
+
+  /* CÍM LEJJEBB A FEJLÉCTŐL */
+
+  .appointment-page{
+    padding:64px 19px 36px;
+  }
+
+  .appointment-section{
+    width:100%;
+    max-width:100%;
+  }
+
+  .section-heading{
+    margin-bottom:32px;
+  }
+
+  .section-heading h1{
+    font-size:31px;
+    line-height:.98;
+  }
+
+  .gold-line{
+    width:40px;
+    margin:16px auto;
+  }
+
+  .section-heading p{
+    padding:0 5px;
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:1.1px;
+  }
+
+
+  /* ŰRLAP */
+
+  .appointment-form{
+    width:100%;
+    gap:17px;
+  }
+
+  .form-group{
+    width:100%;
+    min-width:0;
+  }
+
+  .form-group label{
+    margin:0 0 7px 3px;
+    font-size:16px;
+  }
+
+  .form-group label i{
+    font-size:18px;
+  }
+
+
+  /* INPUTOK */
+
+  .form-group input,
+  .form-group input[type="date"],
+  .form-group input[type="time"]{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    height:52px;
+    min-height:52px;
+    padding:0 16px;
+    margin:0;
+    border-radius:13px;
+    font-size:15px;
+  }
+
+
+  /* DÁTUM ÉS IDŐ KÖZÉPRE */
+
+  .form-group input[type="date"],
+  .form-group input[type="time"]{
+    -webkit-appearance:none;
+    appearance:none;
+    text-align:center;
+    text-align-last:center;
+  }
+
+  .form-group input[type="date"]::-webkit-date-and-time-value,
+  .form-group input[type="time"]::-webkit-date-and-time-value{
+    width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+    text-align:center;
+  }
+
+  .form-group input[type="date"]::-webkit-datetime-edit,
+  .form-group input[type="time"]::-webkit-datetime-edit{
+    width:100%;
+    margin:0;
+    padding:0;
+    text-align:center;
+  }
+
+  .form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+  .form-group input[type="time"]::-webkit-datetime-edit-fields-wrapper{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+
+  /* GOMB */
+
+  .save-button{
+    width:100%;
+    height:52px;
+    margin-top:6px;
+    border-radius:13px;
+    font-size:15px;
+  }
+
+  .save-button i{
+    font-size:19px;
+  }
+
+
+  /* INFO */
+
+  .info-box{
+    width:100%;
+    margin-top:18px;
+    padding:15px 17px;
+    border-radius:13px;
+  }
+
+  .info-box p{
+    font-size:13px;
+  }
+
+
+  /* ÜZENETEK */
+
+  .message{
+    padding:15px;
+    border-radius:13px;
+  }
+
+  .delete-appointment{
+    width:32px;
+    height:32px;
+  }
+}
+
+
+/* ========================================
+   TABLET / ASZTALI
+   501PX FELETT
+======================================== */
+
+@media(min-width:501px){
+
+  .appointment-page{
+    padding-top:50px;
+  }
+
+  .appointment-section{
+    max-width:540px;
+  }
+}
+
+
+/* ========================================
+   VÉGSŐ IOS / SAFARI KÖZÉPRE IGAZÍTÁS
+======================================== */
+
+.form-group input[type="date"],
+.form-group input[type="time"]{
+  text-align:center !important;
+  text-align-last:center !important;
+}
+
+.form-group input[type="date"]::-webkit-date-and-time-value,
+.form-group input[type="time"]::-webkit-date-and-time-value{
+  width:100% !important;
+  min-height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-align:center !important;
+}
+
+.form-group input[type="date"]::-webkit-datetime-edit,
+.form-group input[type="time"]::-webkit-datetime-edit{
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-align:center !important;
+}
+
+.form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+.form-group input[type="time"]::-webkit-datetime-edit-fields-wrapper{
+  width:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}

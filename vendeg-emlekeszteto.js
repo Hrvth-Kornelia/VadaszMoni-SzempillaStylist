@@ -86,8 +86,6 @@ const confirmArrivalButton =
 const declineArrivalButton =
   document.getElementById("declineArrivalButton");
 
-const pushButton = document.getElementById("pushupbutton");
-
 /* ========================================
    PUSH TOKEN
 ======================================== */
@@ -105,30 +103,11 @@ function getPreviousPushToken() {
 }
 
 /* ========================================
-   ÚJ: PUSH ELLENŐRZÉS MENTÉS ELŐTT
+   PUSH ELLENŐRZÉS MENTÉS ELŐTT
 ======================================== */
 
 function canSaveWithPush() {
-  // Csak akkor engedünk mentést,
-  // ha a harang ténylegesen aktív.
-
-  if (!pushButton) return false;
-
-  if (pushButton.disabled) return false;
-
-  if (!pushButton.classList.contains("is-active")) {
-    return false;
-  }
-
-  if (pushButton.getAttribute("aria-pressed") !== "true") {
-    return false;
-  }
-
-  if (localStorage.getItem("pushNotificationsEnabled") !== "true") {
-    return false;
-  }
-
-  if (!localStorage.getItem("fcmToken")) {
+  if (!getActivePushToken()) {
     return false;
   }
 
@@ -140,6 +119,94 @@ function canSaveWithPush() {
   }
 
   return true;
+}
+
+/* ========================================
+   PUSH FIGYELMEZTETÉS A MENTÉS GOMBNÁL
+======================================== */
+
+let pushWarningTimer = null;
+let pushWarning = null;
+
+function showPushWarning() {
+  if (!saveButton || !saveButton.parentNode) return;
+
+  if (!pushWarning) {
+    pushWarning = document.createElement("div");
+    pushWarning.id = "luxoriaPushWarning";
+    pushWarning.setAttribute("role", "status");
+    pushWarning.setAttribute("aria-live", "polite");
+
+    pushWarning.style.cssText = `
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translate(-50%, 6px);
+      width: max-content;
+      max-width: min(320px, 90vw);
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 14px;
+      background: #ffffff;
+      color: #111111;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+      z-index: 1000;
+    `;
+
+    const bell = document.createElement("span");
+    bell.textContent = "🔔";
+    bell.style.cssText = `
+      font-size: 21px;
+      flex-shrink: 0;
+    `;
+
+    const message = document.createElement("span");
+    message.textContent =
+      "Először kapcsold be az értesítéseket az időpont rögzítéséhez!";
+
+    pushWarning.appendChild(bell);
+    pushWarning.appendChild(message);
+
+    // A figyelmeztetés a mentés gomb fölé kerül.
+    const wrapper = document.createElement("div");
+    wrapper.id = "luxoriaSaveButtonWrapper";
+    wrapper.style.cssText = `
+      position: relative;
+      width: 100%;
+    `;
+
+    saveButton.parentNode.insertBefore(wrapper, saveButton);
+    wrapper.appendChild(saveButton);
+    wrapper.appendChild(pushWarning);
+  }
+
+  clearTimeout(pushWarningTimer);
+
+  pushWarning.style.visibility = "visible";
+  pushWarning.style.opacity = "1";
+  pushWarning.style.transform = "translate(-50%, 0)";
+
+  pushWarningTimer = setTimeout(() => {
+    pushWarning.style.opacity = "0";
+    pushWarning.style.transform = "translate(-50%, 6px)";
+    pushWarning.style.visibility = "hidden";
+  }, 3000);
 }
 
 /* ========================================
@@ -636,11 +703,9 @@ if (form) {
       return;
     }
 
-    // ÚJ: Push kötelező az időpont mentéséhez.
+    // Push értesítés kötelező az időpont mentéséhez.
     if (!canSaveWithPush()) {
-      showError(
-        "Az időpont mentéséhez először kapcsold be az értesítéseket a harang gombbal!"
-      );
+      showPushWarning();
       return;
     }
 
